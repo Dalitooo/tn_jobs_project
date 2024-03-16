@@ -29,9 +29,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         if($request->user()->role ==='recruteur'){
-            return redirect()->intended(RouteServiceProvider::RECRUTEUR_DASHBOARD);
+            if (!$request->user()->recruteur()->exists()) {
+                return redirect()->route('recruteur.create');
+            }else{
+                return redirect()->intended(RouteServiceProvider::RECRUTEUR_DASHBOARD);
+            }
+
         }elseif($request->user()->role ==='candidat'){
-            return redirect()->intended(RouteServiceProvider::CANDIDAT_DASHBOARD);
+            if (!$request->user()->candidat()->exists()) {
+                return redirect()->route('candidat.create');
+            } else {
+                return redirect()->intended(RouteServiceProvider::CANDIDAT_DASHBOARD);
+            }
         }elseif($request->user()->role ==='admin'){
             return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
         }
