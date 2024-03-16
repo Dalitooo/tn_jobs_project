@@ -6,7 +6,7 @@
             <div class="col-lg-3 col-md-4 col-sm-12">
                 <div class="box-nav-tabs nav-tavs-profile mb-5">
                     <ul class="nav" role="tablist">
-                        <li><a class="btn btn-border mb-20 active" href="">Profile</a></li>
+                        <li><a class="btn btn-border mb-20 active" href="{{route('recruteur.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.dashboard')}}">Dashboard</a></li>
                         <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
                         <li>
@@ -36,13 +36,13 @@
                 <div class="content-single">
                     <h3 class="mt-0 mb-15 color-brand-1">My Account</h3>
                     <br>
-                    <form action="{{ route('candidat.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('recruteur.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row form-contact">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="nom">Nom</label>
-                                    <input class="form-control" type="text" id="nom" name="nom" value="{{ old('nom') }}">
+                                    <input class="form-control" type="text" id="nom" name="nom" value="{{ $recruteur ? $recruteur->nom : old('nom') }}">
                                     @error('nom')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -51,7 +51,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="prenom">Prenom</label>
-                                    <input class="form-control" type="text" name="prenom" id="prenom" value="{{ old('prenom') }}">
+                                    <input class="form-control" type="text" name="prenom" id="prenom" value="{{$recruteur ? $recruteur->prenom : old('prenom') }}">
                                     @error('prenom')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -60,7 +60,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="nom_entreprise">Nom d'entreprise</label>
-                                    <input class="form-control" type="text" id="nom_entreprise" name="nom_entreprise" value="{{ old('nom_entreprise') }}">
+                                    <input class="form-control" type="text" id="nom_entreprise" name="nom_entreprise" value="{{ $recruteur ? $recruteur->nom_entreprise : old('nom_entreprise') }}">
                                     @error('nom_entreprise')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -69,17 +69,16 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="Adresse">Adresse</label>
-                                    <input class="form-control" type="text" name="adresse" id="adresse" value="{{ old('prenom') }}">
+                                    <input class="form-control" type="text" name="adresse" id="adresse" value="{{$recruteur ? $recruteur->adresse : old('adresse') }}">
                                     @error('adresse')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
-                            <!-- Add error messages for other fields as needed -->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="tel">Telephone</label>
-                                    <input class="form-control" type="text" id="tel" name="tel" placeholder="Steven Job" value="{{ old('tel') }}">
+                                    <input class="form-control" type="text" id="tel" name="tel" placeholder="Steven Job" value="{{ $recruteur ? $recruteur->tel : old('tel') }}">
                                     @error('tel')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -88,11 +87,12 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="font-sm color-text-mutted mb-10" for="image">Logo</label>
-                                    <input class="form-control" type="file" id="image" name="image">
-                                    @error('image')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                    <label class="font-sm color-text-muted mb-10" for="logo">Current Logo</label>
+                                    @if($recruteur && $recruteur->logo)
+                                        <img src="{{ asset('storage/' . $recruteur->logo) }}" alt="Current Logo" style="max-width: 100px; max-height: 100px;">
+                                    @else
+                                        <div>No logo uploaded</div>
+                                    @endif
                                 </div>
                             </div>
 

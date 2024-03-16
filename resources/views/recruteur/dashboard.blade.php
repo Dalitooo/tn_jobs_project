@@ -6,7 +6,7 @@
             <div class="col-lg-3 col-md-4 col-sm-12">
                 <div class="box-nav-tabs nav-tavs-profile mb-5">
                     <ul class="nav" role="tablist">
-                        <li><a class="btn btn-border mb-20" href="">Profile</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('recruteur.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20 active" href="{{route('recruteur.dashboard')}}">Dashboard</a></li>
                         <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
                         <li>
@@ -52,7 +52,7 @@
                             <h4>Setup your profile !</h4>
                             <p>Please fill in all the necessary information to complete your profile. This will help us provide you with a better experience on our platform.</p>
                           </div>
-                          <a href="" class="btn btn-default rounded-1">Edit Profile</a>
+                          <a href="{{route('recruteur.create')}}" class="btn btn-default rounded-1">Edit Profile</a>
                         </div>
                       </div>
                     </div>

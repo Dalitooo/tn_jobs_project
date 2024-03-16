@@ -54,6 +54,40 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $user_id
+ * @property string $nom
+ * @property string $prenom
+ * @property string $nom_entreprise
+ * @property string $adresse
+ * @property string $tel
+ * @property string $logo
+ * @property bool|null $verif
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereAdresse($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereLogo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereNom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereNomEntreprise($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur wherePrenom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereTel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereVerif($value)
+ */
+	class Recruteur extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $image
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -65,6 +99,7 @@ namespace App\Models{
  * @property-read \App\Models\Candidat|null $candidat
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \App\Models\Recruteur|null $recruteur
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])

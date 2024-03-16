@@ -45,6 +45,7 @@ Route::group(
     ],function(){
         Route::get('dashboard', function () {return view('recruteur.dashboard');})->name('dashboard');
         Route::get('profile',[RecruteurController::class,'create'])->name('create');
+        Route::post('store',[RecruteurController::class,'store'])->name('store');
     }
 );
 /*admin*/

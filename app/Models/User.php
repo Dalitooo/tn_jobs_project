@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Candidat::class, 'user_id', 'id');
     }
+
+    public function recruteur():HasOne
+    {
+        return $this->hasOne(Recruteur::class,'user_id','id');
+    }
 }
