@@ -37,7 +37,8 @@ class RecruteurController extends Controller
             $logoPath = $request->file('logo')->store('images','public');
         } else {
             // If no new logo file is uploaded, keep the existing logo path
-            $logoPath = $existingRecruteur ? $existingRecruteur->logo : null;
+            $recruteur = auth()->user()->recruteur;
+            $logoPath=$recruteur->logo;
         }
 
         Recruteur::UpdateOrCreate([

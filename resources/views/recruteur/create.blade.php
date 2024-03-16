@@ -87,15 +87,16 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="font-sm color-text-muted mb-10" for="logo">Current Logo</label>
-                                    @if($recruteur ?? null)
-                                        <img src="{{ asset('storage/' . $recruteur->logo) }}" alt="Current Logo" style="max-width: 100px; max-height: 100px;">
+                                    <label class="font-sm color-text-mutted mb-10" for="image">Image</label>
+                                    @if($recruteur ?? null && $recruteur->logo)
+                                        <p>Current Image: <img src="{{ asset('storage/' . $recruteur->logo) }}" alt="Current Image"></p>
+                                        <input class="form-control" type="file" name="logo" id="image">
                                     @else
-                                    <input class="form-control" type="file" id="logo" name="logo">
-                                    @error('logo')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                        <input class="form-control" type="file" name="logo" id="image" required>
                                     @endif
+                                    @error('logo')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
