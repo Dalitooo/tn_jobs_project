@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nom_entreprise');
             $table->string('adresse');
             $table->string('tel');
-            $table->string('logo');
+            $table->string('logo')->default('/default/avatart.jpg');
             $table->boolean('verif')->nullable();
             $table->timestamps();
         });

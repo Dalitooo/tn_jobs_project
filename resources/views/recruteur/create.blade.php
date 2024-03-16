@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="nom">Nom</label>
-                                    <input class="form-control" type="text" id="nom" name="nom" value="{{ $recruteur ? $recruteur->nom : old('nom') }}">
+                                    <input class="form-control" type="text" id="nom" name="nom" value="{{  $recruteur->nom ??  old('nom') }}">
                                     @error('nom')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -51,7 +51,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="prenom">Prenom</label>
-                                    <input class="form-control" type="text" name="prenom" id="prenom" value="{{$recruteur ? $recruteur->prenom : old('prenom') }}">
+                                    <input class="form-control" type="text" name="prenom" id="prenom" value="{{ $recruteur->prenom ??  old('prenom') }}">
                                     @error('prenom')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -60,7 +60,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="nom_entreprise">Nom d'entreprise</label>
-                                    <input class="form-control" type="text" id="nom_entreprise" name="nom_entreprise" value="{{ $recruteur ? $recruteur->nom_entreprise : old('nom_entreprise') }}">
+                                    <input class="form-control" type="text" id="nom_entreprise" name="nom_entreprise" value="{{ $recruteur->nom_entreprise ?? old('nom_entreprise') }}">
                                     @error('nom_entreprise')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -69,7 +69,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="Adresse">Adresse</label>
-                                    <input class="form-control" type="text" name="adresse" id="adresse" value="{{$recruteur ? $recruteur->adresse : old('adresse') }}">
+                                    <input class="form-control" type="text" name="adresse" id="adresse" value="{{$recruteur->adresse ?? old('adresse') }}">
                                     @error('adresse')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -78,7 +78,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="tel">Telephone</label>
-                                    <input class="form-control" type="text" id="tel" name="tel" placeholder="Steven Job" value="{{ $recruteur ? $recruteur->tel : old('tel') }}">
+                                    <input class="form-control" type="text" id="tel" name="tel" placeholder="Steven Job" value="{{ $recruteur->tel ?? old('tel') }}">
                                     @error('tel')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -88,10 +88,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-muted mb-10" for="logo">Current Logo</label>
-                                    @if($recruteur && $recruteur->logo)
+                                    @if($recruteur ?? null)
                                         <img src="{{ asset('storage/' . $recruteur->logo) }}" alt="Current Logo" style="max-width: 100px; max-height: 100px;">
                                     @else
-                                        <div>No logo uploaded</div>
+                                    <input class="form-control" type="file" id="logo" name="logo">
+                                    @error('logo')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                     @endif
                                 </div>
                             </div>

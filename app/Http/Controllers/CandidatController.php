@@ -17,7 +17,7 @@ class CandidatController extends Controller
     public function store(Request $request){
 
         $data = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'profession' => 'required|string|max:25',
             'nom' => 'required|string|max:25',
             'prenom' => 'required|string|max:25',

@@ -16,9 +16,11 @@ class RecruteurController extends Controller
         return view('recruteur.create');
     }
     }
+
     public function store(Request $request){
+
         $data=$request->validate([
-            'logo'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
             'nom' => 'required|string|max:25',
             'prenom' => 'required|string|max:25',
             'nom_entreprise'=>'required|string|max:25',
@@ -26,7 +28,18 @@ class RecruteurController extends Controller
             'tel' => 'required|string|max:20',
 
         ]);
-        $logoPath = $request->file('logo')->store('images','public');
+
+
+        $existingRecruteur = auth()->user()->recruteur;
+        // Check if a new logo file is uploaded
+        if ($request->hasFile('logo')) {
+            // Store the new logo file
+            $logoPath = $request->file('logo')->store('images','public');
+        } else {
+            // If no new logo file is uploaded, keep the existing logo path
+            $logoPath = $existingRecruteur ? $existingRecruteur->logo : null;
+        }
+
         Recruteur::UpdateOrCreate([
             'user_id'=>auth()->user()->id,
         ],
