@@ -11,7 +11,14 @@ class CandidatController extends Controller
 
     public function create()
     {
-        return view('candidat.create');
+        $candidat = auth()->user()->candidat;
+        if($candidat){
+            return view('candidat.create', compact('candidat'));
+        }else
+        {
+            return view('candidat.create');
+
+        }
     }
 
     public function store(Request $request){
@@ -24,15 +31,26 @@ class CandidatController extends Controller
             'tel' => 'required|string|max:20',
             'genre' => 'required|in:Homme,Femme',
             'date_naiss' => 'required|date',
-            'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+            'cv' => 'mimes:pdf,doc,docx|max:2048',
         ]);
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
 
-        $imagePath = $request->file('image')->store('images', 'public');
-        $cvPath = $request->file('cv')->store('cv', 'public');
+        }else{
+            $candidat = auth()->user()->candidat;
+            $imagePath=$candidat->image;
+        }
+        if ($request->hasFile('cv')) {
+            $cvPath = $request->file('cv')->store('cv', 'public');
+
+        }else{
+            $candidat = auth()->user()->candidat;
+            $cvPath=$candidat->cv;
+        }
 
 
         // Create a new Candidat instance with the validated data
-        Candidat::firstOrCreate(
+        Candidat::UpdateOrCreate(
             [
             'user_id' => auth()->user()->id,
             ],

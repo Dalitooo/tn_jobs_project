@@ -17,7 +17,7 @@
                 $table->string('profession');
                 $table->string('nom');
                 $table->string('prenom');
-                $table->string('image')->default('/default/avatart.jpg');
+                $table->string('image');
                 $table->string('tel');
                 $table->enum('genre',['Homme','Femme']);
                 $table->date('date_naiss');
