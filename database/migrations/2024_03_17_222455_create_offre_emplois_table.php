@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('exigence');
             $table->date('date_fin_offre');
             $table->string('lieu');
+            $table->unsignedDecimal('salaire', 6, 2)->nullable(); // Adding salary field
             $table->boolean('verif')->nullable();
             $table->timestamps();
         });
