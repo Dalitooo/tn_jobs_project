@@ -18,6 +18,7 @@ namespace App\Models{
  * @property int $id
  * @property int $user_id
  * @property string $profession
+ * @property string $bio
  * @property string $nom
  * @property string $prenom
  * @property string $image
@@ -28,10 +29,13 @@ namespace App\Models{
  * @property bool|null $verif
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Candidature> $candidatures
+ * @property-read int|null $candidatures_count
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Candidat newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Candidat newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Candidat query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidat whereBio($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Candidat whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Candidat whereCv($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Candidat whereDateNaiss($value)
@@ -54,9 +58,68 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $candidat_id
+ * @property int $offre_emploi_id
+ * @property int $result
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Candidat $candidat
+ * @property-read \App\Models\OffreEmploi $offreEmploi
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature whereCandidatId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature whereOffreEmploiId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature whereResult($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Candidature whereUpdatedAt($value)
+ */
+	class Candidature extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $recruteur_id
+ * @property string $poste
+ * @property string $description
+ * @property string $exigence
+ * @property string $date_fin_offre
+ * @property string $lieu
+ * @property int|null $verif
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Candidature> $candidatures
+ * @property-read int|null $candidatures_count
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi query()
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereDateFinOffre($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereExigence($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereLieu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi wherePoste($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereRecruteurId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereVerif($value)
+ */
+	class OffreEmploi extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property int $user_id
  * @property string $nom
  * @property string $prenom
+ * @property string $bio
  * @property string $nom_entreprise
  * @property string $adresse
  * @property string $tel
@@ -69,6 +132,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur query()
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereAdresse($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereBio($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur whereLogo($value)
