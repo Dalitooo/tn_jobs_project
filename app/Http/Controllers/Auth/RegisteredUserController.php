@@ -49,16 +49,15 @@ class RegisteredUserController extends Controller
         if($request->user()->role ==='recruteur'){
             if (!$request->user()->recruteur()->exists()) {
                 return redirect()->route('recruteur.create');
-            }else{
-                return redirect()->intended(RouteServiceProvider::RECRUTEUR_DASHBOARD);
             }
+            return redirect()->intended('recruteur.dashboard');
 
-        }elseif($request->user()->role ==='candidat'){
+        }if($request->user()->role ==='candidat'){
             if (!$request->user()->candidat()->exists()) {
                 return redirect()->route('candidat.create');
-            } else {
-                return redirect()->intended(RouteServiceProvider::CANDIDAT_DASHBOARD);
             }
+            return redirect()->intended('candidat.dashboard');
+
         }elseif(auth()->user()->role==='admin'){
             return redirect(RouteServiceProvider::ADMIN_DASHBOARD);
         }

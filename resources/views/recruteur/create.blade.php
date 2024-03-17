@@ -75,6 +75,12 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="font-sm color-text-mutted mb-10">Bio</label>
+                                  <textarea class="form-control" rows="4" name="bio"> {{ $recruteur->bio ?? old('bio') }} </textarea>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-sm color-text-mutted mb-10" for="tel">Telephone</label>

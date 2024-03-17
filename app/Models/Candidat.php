@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Candidat extends Model
 {
     use HasFactory;
-    protected $fillable=['image','profession','nom','prenom','user_id','tel', 'genre', 'date_naiss', 'cv', 'verif'];
+    protected $fillable=['image','profession','bio','nom','prenom','user_id','tel', 'genre', 'date_naiss', 'cv', 'verif'];
 
     protected $casts = [
         'verif' => 'boolean',

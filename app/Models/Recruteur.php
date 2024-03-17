@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Recruteur extends Model
 {
     use HasFactory;
-    protected $fillable=['nom','prenom','adresse','nom_entreprise','user_id','tel','logo','verif'];
+    protected $fillable=['nom','prenom','bio','adresse','nom_entreprise','user_id','tel','logo','verif'];
     protected $casts = [
         'verif' => 'boolean',
     ];

@@ -22,6 +22,7 @@ class RecruteurController extends Controller
         $data=$request->validate([
             'logo'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
             'nom' => 'required|string|max:25',
+            'bio' => 'required|string|max:250',
             'prenom' => 'required|string|max:25',
             'nom_entreprise'=>'required|string|max:25',
             'adresse' => 'required|string|max:150',
@@ -48,6 +49,7 @@ class RecruteurController extends Controller
             'logo'=>$logoPath,
             'nom'=>$data['nom'],
             'prenom'=>$data['prenom'],
+            'bio'=>$data['bio'],
             'nom_entreprise'=>$data['nom_entreprise'],
             'adresse'=>$data['adresse'],
             'tel'=>$data['tel'],

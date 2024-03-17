@@ -26,6 +26,7 @@ class CandidatController extends Controller
         $data = $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'profession' => 'required|string|max:25',
+            'bio' => 'required|string|max:250',
             'nom' => 'required|string|max:25',
             'prenom' => 'required|string|max:25',
             'tel' => 'required|string|max:20',
@@ -57,6 +58,7 @@ class CandidatController extends Controller
             [
             'image' => $imagePath,
             'profession' => $data['profession'],
+            'bio' => $data['bio'],
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
             'tel' => $data['tel'],

@@ -29,12 +29,11 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         if($request->user()->role ==='recruteur'){
+            
             if (! Auth::user()->recruteur()->exists()) {
                 return redirect()->route('recruteur.create');
             }
-
             return redirect()->intended(Route('recruteur.dashboard'));
-
         }
 
         if( auth()->user()->role ==='candidat'){

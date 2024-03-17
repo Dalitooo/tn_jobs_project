@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->unique()->constrained('users');
             $table->string('nom');
             $table->string('prenom');
+            $table->text('bio');
             $table->string('nom_entreprise');
             $table->string('adresse');
             $table->string('tel');

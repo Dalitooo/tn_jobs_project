@@ -15,6 +15,7 @@
                 $table->id()->uniqid();
                 $table->foreignId('user_id')->unique()->constrained('users');
                 $table->string('profession');
+                $table->text('bio');
                 $table->string('nom');
                 $table->string('prenom');
                 $table->string('image');
