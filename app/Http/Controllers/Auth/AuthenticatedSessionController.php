@@ -26,23 +26,26 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
+
         if($request->user()->role ==='recruteur'){
-            if (!$request->user()->recruteur()->exists()) {
+            if (! Auth::user()->recruteur()->exists()) {
                 return redirect()->route('recruteur.create');
-            }else{
-                return redirect()->intended(RouteServiceProvider::RECRUTEUR_DASHBOARD);
             }
 
-        }elseif($request->user()->role ==='candidat'){
+            return redirect()->intended(Route('recruteur.dashboard'));
+
+        }
+
+        if( auth()->user()->role ==='candidat'){
             if (!$request->user()->candidat()->exists()) {
                 return redirect()->route('candidat.create');
-            } else {
-                return redirect()->intended(RouteServiceProvider::CANDIDAT_DASHBOARD);
             }
-        }elseif($request->user()->role ==='admin'){
-            return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
+            return redirect()->intended(route('candidat.dashboard'));
+        }
+
+        if($request->user()->role ==='admin'){
+            return redirect()->intended(route('admin.dashboard'));
         }
     }
 
