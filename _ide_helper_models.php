@@ -89,11 +89,13 @@ namespace App\Models{
  * @property string $exigence
  * @property string $date_fin_offre
  * @property string $lieu
+ * @property string|null $salaire
  * @property int|null $verif
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Candidature> $candidatures
  * @property-read int|null $candidatures_count
+ * @property-read \App\Models\Recruteur $recruteur
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi query()
@@ -105,6 +107,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereLieu($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi wherePoste($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereRecruteurId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereSalaire($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OffreEmploi whereVerif($value)
  */
@@ -127,6 +130,8 @@ namespace App\Models{
  * @property bool|null $verif
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\OffreEmploi> $offreEmploi
+ * @property-read int|null $offre_emploi_count
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Recruteur newQuery()

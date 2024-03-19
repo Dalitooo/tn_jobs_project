@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('offre_emplois', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('recruteur_id')->unique()->constrained('recruteurs');
+            $table->foreignId('recruteur_id')->constrained('recruteurs');
             $table->string('poste');
             $table->text('description');
-            $table->string('exigence');
+            $table->text('exigence');
             $table->date('date_fin_offre');
             $table->string('lieu');
-            $table->unsignedDecimal('salaire', 6, 2)->nullable(); // Adding salary field
+            $table->unsignedDecimal('salaire', 6, 2)->nullable();
             $table->boolean('verif')->nullable();
             $table->timestamps();
         });

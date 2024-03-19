@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\OffreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecruteurController;
 use App\Models\Candidat;
@@ -46,6 +47,13 @@ Route::group(
         Route::get('dashboard', function () {return view('recruteur.dashboard');})->name('dashboard');
         Route::get('profile',[RecruteurController::class,'create'])->name('create');
         Route::post('store',[RecruteurController::class,'store'])->name('store');
+        route::get('offre/create',[OffreController::class,'create'])->name('offre.create');
+        route::get('offre/all',[OffreController::class,'myOffres'])->name('offre.index');
+        route::post('offre/store',[OffreController::class,'store'])->name('offre.store');
+        route::get('offre/edit/{offre}',[OffreController::class,'edit'])->name('offre.edit');
+        route::put('offre/update/{offre}',[OffreController::class,'update'])->name('offre.update');
+        route::delete('offre/delete/{offre}',[OffreController::class,'destroy'])->name('offre.destroy');
+
     }
 );
 /*admin*/

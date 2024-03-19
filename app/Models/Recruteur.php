@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Recruteur extends Model
 {
@@ -18,4 +19,7 @@ class Recruteur extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function offreEmploi():HasMany{
+        return $this->hasMany(OffreEmploi::class,'recruteur_id', 'id');
+    }
 }
