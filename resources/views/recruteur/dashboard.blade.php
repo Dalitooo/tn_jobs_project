@@ -9,7 +9,7 @@
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20 active" href="{{route('recruteur.dashboard')}}">Dashboard</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre.create')}}">Creer Offre</a></li>
-                        <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre.index')}}">Liste Offre</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre')}}">Liste Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="candidate-profile-save-jobs.html">Candidatures</a></li>
                         <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
                         <li>

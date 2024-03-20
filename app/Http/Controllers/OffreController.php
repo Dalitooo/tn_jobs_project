@@ -7,8 +7,14 @@ use Illuminate\Http\Request;
 
 class OffreController extends Controller
 {
+
+    public function index(){
+        $offres=OffreEmploi::paginate(5);
+        return view('offre.index',['offres'=>$offres]);
+    }
+
     public function myOffres(){
-        $myOffres = OffreEmploi::where('recruteur_id', auth()->user()->id)->paginate(3);
+        $myOffres = OffreEmploi::where('recruteur_id', auth()->user()->id)->paginate(5);
         return view('recruteur.offre_emploi.liste-offre',compact('myOffres'));
     }
 
@@ -42,6 +48,9 @@ class OffreController extends Controller
 
     public function edit(OffreEmploi $offre){
         return view('recruteur.offre_emploi.update-offre',['offre'=>$offre]);
+    }
+    public function show(OffreEmploi $offre){
+        return view('offre.job-detail',['offre'=>$offre]);
     }
 
     public function update(OffreEmploi $offre,Request $request){

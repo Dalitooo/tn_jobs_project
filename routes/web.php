@@ -5,6 +5,7 @@ use App\Http\Controllers\OffreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecruteurController;
 use App\Models\Candidat;
+use App\Models\OffreEmploi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/offre',[OffreController::class,'index'])->name('offre.index');
+Route::get('/offre/{offre}',[OffreController::class,'show'])->name('offre.show');
+Route::get('/recruteurs',[RecruteurController::class,'index'])->name('recruteur.index');
+Route::get('/recruteurs/{recruteur}',[RecruteurController::class,'show'])->name('recruteur.show');
+
 
 /*candidat*/
 Route::group(
@@ -48,7 +54,7 @@ Route::group(
         Route::get('profile',[RecruteurController::class,'create'])->name('create');
         Route::post('store',[RecruteurController::class,'store'])->name('store');
         route::get('offre/create',[OffreController::class,'create'])->name('offre.create');
-        route::get('offre/all',[OffreController::class,'myOffres'])->name('offre.index');
+        route::get('offre',[OffreController::class,'myOffres'])->name('offre');
         route::post('offre/store',[OffreController::class,'store'])->name('offre.store');
         route::get('offre/edit/{offre}',[OffreController::class,'edit'])->name('offre.edit');
         route::put('offre/update/{offre}',[OffreController::class,'update'])->name('offre.update');

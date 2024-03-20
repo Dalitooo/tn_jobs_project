@@ -1,0 +1,104 @@
+@extends('layouts.master')
+@section('content')
+<section class="section-box mt-120">
+    <div class="container">
+      <div class="row flex-row-reverse">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-12 float-right">
+          <div class="content-page">
+            <div class="box-filters-job">
+              <div class="row">
+                <div class="col-xl-6 col-lg-5"><span class="text-small text-showing">Showing <strong>41-60 </strong>of
+                    <strong>944 </strong>jobs</span></div>
+                <div class="col-xl-6 col-lg-7 text-lg-end mt-sm-15">
+                  <div class="display-flex2">
+                    <div class="box-border mr-10"><span class="text-sortby">Show:</span>
+                      <div class="dropdown dropdown-sort">
+                        <button class="btn dropdown-toggle" id="dropdownSort" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><span>12</span><i class="fi-rr-angle-small-down"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownSort">
+                          <li><a class="dropdown-item active" href="#">10</a></li>
+                          <li><a class="dropdown-item" href="#">12</a></li>
+                          <li><a class="dropdown-item" href="#">20</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="box-border"><span class="text-sortby">Sort by:</span>
+                      <div class="dropdown dropdown-sort">
+                        <button class="btn dropdown-toggle" id="dropdownSort2" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><span>Newest Post</span><i class="fi-rr-angle-small-down"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownSort2">
+                          <li><a class="dropdown-item active" href="#">Newest Post</a></li>
+                          <li><a class="dropdown-item" href="#">Oldest Post</a></li>
+                          <li><a class="dropdown-item" href="#">Rating Post</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row display-list">
+
+                @foreach ($offres as $offre )
+                <div class="col-xl-12 col-12">
+                    <div class="card-grid-2 hover-up"><span class="flash"></span>
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                          <div class="card-grid-2-image-left">
+                            <div class="image-box"><img src="{{ asset('storage/' . $offre->recruteur->logo) }}" alt="joblist"></div>
+                            <div class="right-info"><a class="name-job" href="{{route('recruteur.show',['recruteur'=>$offre])}}">{{$offre->recruteur->nom_entreprise}}</a><span class="location-small">{{$offre->lieu}}</span></div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="card-block-info">
+                        <h4><a href="{{route('offre.show',['offre'=>$offre])}}">{{$offre->poste}}</a></h4>
+                        <div class="mt-5"><span class="card-time"><span> {{$offre->updated_at}}</span></span></div>
+                        <p class="font-sm color-text-paragraph mt-10">
+                            {{$offre->description}}
+                        </p>
+                        <div class="card-2-bottom mt-20">
+                          <div class="row">
+                            <div class="col-lg-7 col-7"><span class="card-text-price">{{$offre->salaire}} dt</span></div>
+                            <div class="col-lg-5 col-5 text-end">
+                                <div class="btn btn-apply-now">
+                                    <a href="{{route('offre.show',['offre'=>$offre])}}">
+                                        Voir Plus
+                                    </a>
+
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+
+            </div>
+          </div>
+          {{ $offres->links() }}
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="sidebar-shadow none-shadow mb-30">
+            <div class="sidebar-filters">
+              <div class="filter-block head-border mb-30">
+                <h5>Chercher</h5>
+              </div>
+              <form class="filter-block mb-30" action="/search" method="GET">
+                <div class="form-group select-style">
+                  <label for="search-input" class="visually-hidden">Search by Industry</label>
+                  <input type="text" id="search-input" name="industry" class="form-control" placeholder="Search by Industry">
+
+                  <button class="submit btn btn-default mt-10 rounded-1 w-100" type="submit">Search</button>
+                </div>
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="mt-120"></div>
+
+@endsection

@@ -17,6 +17,15 @@ class RecruteurController extends Controller
     }
     }
 
+    public function index(){
+        $recruteurs = Recruteur::paginate(9);
+        return view('recruteur.index',['recruteurs'=>$recruteurs]);
+    }
+
+    public function show(Recruteur $recruteur){
+        return view('recruteur.recruteur-details',['recruteur'=>$recruteur]);
+    }
+
     public function store(Request $request){
 
         $data=$request->validate([
@@ -29,7 +38,6 @@ class RecruteurController extends Controller
             'tel' => 'required|string|max:20',
 
         ]);
-
 
         $existingRecruteur = auth()->user()->recruteur;
         // Check if a new logo file is uploaded

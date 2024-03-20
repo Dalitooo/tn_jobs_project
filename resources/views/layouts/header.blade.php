@@ -9,8 +9,8 @@
           <nav class="nav-main-menu">
             <ul class="main-menu">
               <li class="has-children"><a class="active" href="index.html">Home</a></li>
-              <li class="has-children"><a href="jobs-list.html">Find a Job</a></li>
-              <li class="has-children"><a href="companies-grid.html">Recruiters</a></li>
+              <li class="has-children"><a href="{{route('offre.index')}}">Find a Job</a></li>
+              <li class="has-children"><a href="{{route('recruteur.index')}}">Recruiters</a></li>
               <li class="has-children"><a href="candidates-grid.html">Candidates</a></li>
               <li class="has-children"><a href="blog-grid.html">Contact</a>
                 <ul class="sub-menu">
