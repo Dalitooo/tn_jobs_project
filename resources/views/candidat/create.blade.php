@@ -22,6 +22,7 @@
             </div>
 
             <div class="col-lg-9 col-md-8 col-sm-12 col-12 mb-50">
+                @if(!auth()->user()->candidat)
                 <div class="row">
                     <div class="col-12 mt-30">
                         <div class="dash_alert_box p-30 bg-danger rounded-4 d-flex flex-wrap">
@@ -32,10 +33,10 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <br>
                 <div class="content-single">
                     <h3 class="mt-0 mb-15 color-brand-1">My Account</h3>
-                    <a class="font-md color-text-paragraph-2" href="#">Update your profile</a>
                     <br>
                     <form action="{{ route('candidat.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf

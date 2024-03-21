@@ -11,7 +11,7 @@
               <li class="has-children"><a class="active" href="index.html">Home</a></li>
               <li class="has-children"><a href="{{route('offre.index')}}">Find a Job</a></li>
               <li class="has-children"><a href="{{route('recruteur.index')}}">Recruiters</a></li>
-              <li class="has-children"><a href="candidates-grid.html">Candidates</a></li>
+              <li class="has-children"><a href="{{route('candidat.index')}}">Candidates</a></li>
               <li class="has-children"><a href="blog-grid.html">Contact</a>
                 <ul class="sub-menu">
                   <li><a href="page-about.html">About Us</a></li>

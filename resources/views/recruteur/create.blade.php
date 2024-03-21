@@ -25,6 +25,7 @@
             </div>
 
             <div class="col-lg-9 col-md-8 col-sm-12 col-12 mb-50">
+                @if(!auth()->user()->recruteur)
                 <div class="row">
                     <div class="col-12 mt-30">
                         <div class="dash_alert_box p-30 bg-danger rounded-4 d-flex flex-wrap">
@@ -35,6 +36,8 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
                 <br>
                 <div class="content-single">
                     <h3 class="mt-0 mb-15 color-brand-1">My Account</h3>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Candidat;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Can;
 
 class CandidatController extends Controller
 {
@@ -19,6 +20,33 @@ class CandidatController extends Controller
             return view('candidat.create');
 
         }
+    }
+
+    public function index(){
+        $candidats=Candidat::all();
+        return view('candidat.index',['candidats'=>$candidats]);
+    }
+
+    public function downloadCV(Candidat $candidat)
+    {
+        // Retrieve the path to the CV file
+        $cvPath = $candidat->cv;
+
+        // Check if the CV path exists
+        if ($cvPath) {
+            // Get the file name
+            $fileName = basename($cvPath);
+
+            // Generate the response for downloading the file
+            return response()->download(storage_path('app/public/' . $cvPath), $fileName);
+        } else {
+            // If CV path doesn't exist, redirect back or handle as appropriate
+            return redirect()->back()->with('error', 'CV not found.');
+        }
+    }
+
+    public function show(Candidat $candidat){
+        return view('candidat.candidat-details',['candidat'=>$candidat]);
     }
 
     public function store(Request $request){

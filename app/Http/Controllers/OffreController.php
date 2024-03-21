@@ -14,7 +14,8 @@ class OffreController extends Controller
     }
 
     public function myOffres(){
-        $myOffres = OffreEmploi::where('recruteur_id', auth()->user()->id)->paginate(5);
+        $recruteurId = auth()->user()->recruteur->id;
+        $myOffres = OffreEmploi::where('recruteur_id',$recruteurId)->paginate(5);
         return view('recruteur.offre_emploi.liste-offre',compact('myOffres'));
     }
 
@@ -47,6 +48,11 @@ class OffreController extends Controller
     }
 
     public function edit(OffreEmploi $offre){
+        $recruteurId = auth()->user()->recruteur->id;
+        if ($offre->recruteur_id !== $recruteurId) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view('recruteur.offre_emploi.update-offre',['offre'=>$offre]);
     }
     public function show(OffreEmploi $offre){
@@ -69,7 +75,7 @@ class OffreController extends Controller
     }
     public function destroy(OffreEmploi $offre){
         $offre->delete();
-        return redirect(route('recruteur.offre.index'))->with('success', 'Offre deleted Succesffully');
+        return redirect(route('recruteur.offre'))->with('success', 'Offre deleted Succesffully');
 
     }
 

@@ -45,6 +45,7 @@
                         </div>
                       </div>
                     </div>
+                    @if(!auth()->user()->candidat)
                     <div class="row">
                       <div class="col-12 mt-30">
                         <div class="dash_alert_box p-30 bg-danger rounded-4 d-flex flex-wrap">
@@ -56,6 +57,8 @@
                         </div>
                       </div>
                     </div>
+                    @endif
+
                   </div>
                 </div>
               </div>
