@@ -13,7 +13,12 @@
           </span></div>
         </div>
         <div class="col-lg-4 col-md-12 text-lg-end">
-          <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
+          <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up">
+            <form action="{{Route('candidat.candidature.store',['id'=>$offre->id])}}" method="POST">
+                @csrf
+                <input type="submit" value="apply now">
+            </form>
+          </div>
         </div>
       </div>
       <div class="border-bottom pt-10 pb-10"></div>

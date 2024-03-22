@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('candidat_id')->constrained('candidats');
             $table->foreignId('offre_emploi_id')->constrained('offre_emplois');
-	        $table->boolean('result')->default(null);
+	        $table->boolean('result')->nullable();
             $table->timestamps();
         });
     }

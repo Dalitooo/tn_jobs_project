@@ -9,8 +9,8 @@
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.dashboard')}}">Dashboard</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre.create')}}">Creer Offre</a></li>
-                        <li><a class="btn btn-border mb-20  active" href="{{route('recruteur.offre')}}">Liste Offre</a></li>
-                        <li><a class="btn btn-border mb-20" href="{{route('recruteur.candidatures')}}">Candidatures</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre')}}">Liste Offre</a></li>
+                        <li><a class="btn btn-border mb-20 active" href="{{route('recruteur.candidatures')}}">Candidatures</a></li>
                         <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
@@ -25,6 +25,7 @@
             </div>
 
             <div class="col-lg-9 col-md-12 col-sm-12 col-12 float-right">
+
                 <div class="content-page">
                   <div class="box-filters-job">
                     <div class="row">
@@ -64,66 +65,62 @@
                             </div>
                         @endif
                     </div>
-                    @foreach ($myOffres as $offre )
-                    <div class="col-xl-12 col-12">
-                        <div class="card-grid-2 hover-up"><span class="flash"></span>
-                          <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                              <div class="card-grid-2-image-left">
-                                <div class="image-box"><img src="{{ asset('storage/' . auth()->user()->recruteur->logo) }}" alt="joblist"></div>
-                                <div class="right-info"><a class="name-job" href="">LinkedIn</a><span class="location-small">{{$offre->lieu}}</span></div>
-                              </div>
-                            </div>
-                            <div class="col-lg-6 text-start text-md-end pr-60 col-md-6 col-sm-12">
-                              <div class="pl-15 mb-15 mt-30">
-                              <p class="btn btn-grey-small mr-5">Pending...</p></div>
-                            </div>
-                          </div>
-                          <div class="card-block-info">
-                            <h4><a href="job-details.html">{{$offre->poste}}</a></h4>
-                            <div class="mt-5"><span class="card-time"><span> {{$offre->updated_at}}</span></span></div>
-                            <p class="font-sm color-text-paragraph mt-10">
-                                {{$offre->description}}
-                            </p>
-                            <div class="card-2-bottom mt-20">
-                              <div class="row">
-                                <div class="col-lg-7 col-7"><span class="card-text-price">{{$offre->salaire}} dt</span></div>
-                                <div class="col-lg-5 col-5 text-end">
-                                  <div class="btn btn-apply-now">
-                                    <a href="{{route('recruteur.offre.edit',['offre'=>$offre])}}">Update</a>
-                                  </div>
-                                  &nbsp;
-                                  &nbsp;
-                                  <div class="btn btn-apply-now" style="background-color: red;">
-                                    <form method="post" action="{{route('recruteur.offre.destroy', ['offre' => $offre])}}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit">Delete</button>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+
+
                       </div>
+                  </div>
+
+
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                      <tr style="background-color: #f2f2f2;">
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">ID</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Candidat</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Poste</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Result</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ( $candidatures as $candidature )
+                      <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 8px;">{{$candidature->id}}</td>
+                        <td style="padding: 8px;">{{$candidature->candidat->prenom}} {{$candidature->candidat->nom}}
+                            &nbsp;&nbsp;
+                            <button style="padding: 6px 10px; border: none; background-color: #007bff; color: white; cursor: pointer; border-radius: 4px; margin-right: 5px;">
+                                <a href="{{route('candidat.show',['candidat'=>$candidature->candidat])}}">Voir Profil</a>
+                            </button>
+
+                        </td>
+                        <td style="padding: 8px;">{{$candidature->offreEmploi->poste}}</td>
+                        <td style="padding: 8px;">
+                        @if ($candidature->result === null)
+                            En attente
+                        @elseif ($candidature->result === 0)
+                            Refusé
+                        @elseif ($candidature->result === 1)
+                            Accepté
+                        @endif
+                        </td>
+                        <td style="padding: 8px;">
+                          <form action="{{route('recruteur.candidatures.accepter',['candidature'=>$candidature])}}" method="POST">
+                            @csrf
+                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #28a745; color: white; cursor: pointer; border-radius: 4px; margin-right: 5px;">Accept</button>
+                          </form>
+                          <form action="{{route('recruteur.candidatures.refuser',['candidature'=>$candidature])}}" method="POST">
+                            @csrf
+                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #dc3545; color: white; cursor: pointer; border-radius: 4px;">Refuser</button>
+                          </form>
+
+                        </td>
+                      </tr>
                     @endforeach
 
+                    </tbody>
+                  </table>
 
-                  </div>
                 </div>
-                {{ $myOffres->links() }}
 
-                <div class="paginations">
-                  <ul class="pager">
-                    <li><a class="pager-prev" href="#"><i class="fas fa-arrow-left"></i></a></li>
-                    <li><a class="pager-number" href="#">1</a></li>
-                    <li><a class="pager-number" href="#">2</a></li>
-                    <li><a class="pager-number active" href="#">3</a></li>
-                    <li><a class="pager-number" href="#">4</a></li>
-                    <li><a class="pager-next" href="#"><i class="fas fa-arrow-right"></i></a></li>
-                  </ul>
-                </div>
               </div>
         </div>
     </div>

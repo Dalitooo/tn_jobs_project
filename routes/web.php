@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecruteurController;
@@ -38,10 +39,12 @@ Route::group(
         'prefix'=>'candidat',
         'as'=>'candidat.'
     ],function(){
-        Route::get('dashboard', function () {return view('candidat.dashboard');})->name('dashboard');
+        Route::get('dashboard',  [CandidatController::class, 'dashboard'])->name('dashboard');
         Route::get('profile', [CandidatController::class, 'create'])->name('create');
         Route::post('store', [CandidatController::class, 'store'])->name('store');
         Route::get('editPrivacy',[CandidatController::class,'editPrivacy'])->name('editPrivacy');
+        route::post('candidatures/store/{id}',[CandidatureController::class,'store'])->name('candidature.store');
+        route::get('candidatures',[CandidatureController::class,'myCandidaturesCandidat'])->name('candidatures');
     }
 );
 
@@ -62,6 +65,9 @@ Route::group(
         route::get('offre/edit/{offre}',[OffreController::class,'edit'])->name('offre.edit');
         route::put('offre/update/{offre}',[OffreController::class,'update'])->name('offre.update');
         route::delete('offre/delete/{offre}',[OffreController::class,'destroy'])->name('offre.destroy');
+        route::get('candidatures',[CandidatureController::class,'myCandidaturesRecruteur'])->name('candidatures');
+        route::post('candidatures/accepter/{candidature}',[CandidatureController::class,'accepter'])->name('candidatures.accepter');
+        route::post('candidatures/refuser/{candidature}',[CandidatureController::class,'refuser'])->name('candidatures.refuser');
 
     }
 );

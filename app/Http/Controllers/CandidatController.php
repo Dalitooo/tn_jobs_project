@@ -3,12 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
+use App\Models\Candidature;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Can;
 
 class CandidatController extends Controller
 {
+    public function nbrCandidaturesCandidat(string $id){
+        $nbr = Candidature::where('candidat_id', $id)->count();
+        return $nbr;
+    }
+
+    public function dashboard()
+    {
+        $candidat_id=auth()->user()->candidat->id;
+        $nbr = $this->nbrCandidaturesCandidat($candidat_id);
+        return view('candidat.dashboard', ['nbr' => $nbr]);
+    }
 
     public function create()
     {

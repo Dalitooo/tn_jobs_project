@@ -8,6 +8,7 @@
                     <ul class="nav" role="tablist">
                         <li><a class="btn btn-border mb-20" href="{{route('candidat.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20 active" href="{{route('candidat.dashboard')}}">Dashboard</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('candidat.candidatures')}}">Mes Candidatures</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('candidat.editPrivacy')}}">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
@@ -28,7 +29,7 @@
                     <div class="row">
                       <div class="col-lg-4 col-md-6">
                         <div class="dash_overview_item bg-info-subtle">
-                          <h2>12 <span>job applied</span></h2>
+                          <h2>{{$nbr}} <span>job applied</span></h2>
                           <span class="icon"><i class="fas fa-briefcase"></i></span>
                         </div>
                       </div>

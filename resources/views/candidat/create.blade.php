@@ -8,6 +8,7 @@
                     <ul class="nav" role="tablist">
                         <li><a class="btn btn-border mb-20 active" href="{{route('candidat.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('candidat.dashboard')}}">Dashboard</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('candidat.candidatures')}}">Mes Candidatures</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('candidat.editPrivacy')}}">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
