@@ -35,13 +35,13 @@
                       </div>
                       <div class="col-lg-4 col-md-6">
                         <div class="dash_overview_item bg-danger-subtle">
-                          <h2>12 <span>job accepted</span></h2>
+                          <h2>{{$nbrAccepted}} <span>job accepted</span></h2>
                           <span class="icon"><i class="fas fa-briefcase"></i></span>
                         </div>
                       </div>
                       <div class="col-lg-4 col-md-6">
                         <div class="dash_overview_item bg-warning-subtle">
-                          <h2>12 <span>Profile status</span></h2>
+                          <h2>Pending...</h2>
                           <span class="icon"><i class="fas fa-briefcase"></i></span>
                         </div>
                       </div>

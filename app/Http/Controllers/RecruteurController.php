@@ -2,11 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidature;
+use App\Models\OffreEmploi;
 use App\Models\Recruteur;
 use Illuminate\Http\Request;
 
 class RecruteurController extends Controller
 {
+    public function mesOffres(string $id){
+        $recruteurOffers = OffreEmploi::where('recruteur_id', $id)->pluck('id');
+        $nbrCandidatures = Candidature::whereIn('offre_emploi_id', $recruteurOffers)->count();
+        return $nbrCandidatures;
+
+    }
+    public function mesCandidaturesValide(string $id){
+        $recruteurOffers = OffreEmploi::where('recruteur_id', $id)->pluck('id');
+        $nbrCandidaturesValide = Candidature::whereIn('offre_emploi_id', $recruteurOffers)->where('result',1)->count();
+        return $nbrCandidaturesValide;
+
+    }
+
+    public function dashboard(){
+        $recruteur_id=auth()->user()->recruteur->id;
+        $nbrCandidatures=$this->mesOffres($recruteur_id);
+        $nbrCandidaturesValide= $this->mesCandidaturesValide($recruteur_id);
+        return view('recruteur.dashboard',
+        ['nbrCandidatures'=>$nbrCandidatures,
+         'nbrCandidaturesValide'=>$nbrCandidaturesValide
+        ]
+        );
+    }
+
     public function create(){
     $recruteur = auth()->user()->recruteur;
 

@@ -56,7 +56,7 @@ Route::group(
         'prefix'=>'recruteur',
         'as'=>'recruteur.'
     ],function(){
-        Route::get('dashboard', function () {return view('recruteur.dashboard');})->name('dashboard');
+        Route::get('dashboard',[RecruteurController::class,'dashboard'])->name('dashboard');
         Route::get('profile',[RecruteurController::class,'create'])->name('create');
         Route::post('store',[RecruteurController::class,'store'])->name('store');
         route::get('offre/create',[OffreController::class,'create'])->name('offre.create');

@@ -14,12 +14,19 @@ class CandidatController extends Controller
         $nbr = Candidature::where('candidat_id', $id)->count();
         return $nbr;
     }
+    public function candidaturesAccepted(string $id){
+        $nbr = Candidature::where('candidat_id', $id)
+        ->where('result', '1')
+        ->count();
+        return $nbr;
+    }
 
     public function dashboard()
     {
         $candidat_id=auth()->user()->candidat->id;
         $nbr = $this->nbrCandidaturesCandidat($candidat_id);
-        return view('candidat.dashboard', ['nbr' => $nbr]);
+        $nbrAccepted= $this->candidaturesAccepted($candidat_id);
+        return view('candidat.dashboard', ['nbr' => $nbr,'nbrAccepted'=>$nbrAccepted]);
     }
 
     public function create()
