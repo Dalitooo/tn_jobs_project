@@ -55,7 +55,7 @@ class OffreController extends Controller
             'verif' => null,
         ]
         );
-        return view('recruteur.dashboard');
+        return redirect(route('recruteur.dashboard'));
     }
 
     public function edit(OffreEmploi $offre){
