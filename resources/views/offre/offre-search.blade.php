@@ -85,8 +85,8 @@
               </div>
               <form class="filter-block mb-30" action="{{route('offre.search')}}" method="GET">
                 <div class="form-group select-style">
-                  <input type="text" name="search" class="form-control" placeholder="chercher offre">
-                  <button class="submit btn btn-default mt-10 rounded-1 w-100" type="submit">chercher</button>
+                  <input type="text" name="search" class="form-control" placeholder="search">
+                  <button class="submit btn btn-default mt-10 rounded-1 w-100" type="submit">chercher offre</button>
                 </div>
               </form>
 

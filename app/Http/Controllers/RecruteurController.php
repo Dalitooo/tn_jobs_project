@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 
 class RecruteurController extends Controller
 {
+
+    public function search(Request $request){
+        $searchTerm=$request->input('search');
+        $recruteurs = Recruteur::where('nom_entreprise','like',"%$searchTerm%")
+                            ->orWhere('adresse','like',"%$searchTerm%")
+                            ->orWhere('bio','like',"%$searchTerm%")
+                            ->orWhere('nom','like',"%$searchTerm%")
+                            ->orWhere('prenom','like',"%$searchTerm%")
+                            ->paginate(5);
+        return view('recruteur.recruteur-search', ['recruteurs' => $recruteurs]);
+    }
+
     public function mesOffres(string $id){
         $recruteurOffers = OffreEmploi::where('recruteur_id', $id)->pluck('id');
         $nbrCandidatures = Candidature::whereIn('offre_emploi_id', $recruteurOffers)->count();

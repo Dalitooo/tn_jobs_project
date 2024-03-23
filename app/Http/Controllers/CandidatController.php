@@ -21,6 +21,17 @@ class CandidatController extends Controller
         return $nbr;
     }
 
+    public function search(Request $request){
+        $searchTerm=$request->input('search');
+        $candidats = Candidat::where('profession','like',"%$searchTerm%")
+                            ->orWhere('prenom','like',"%$searchTerm%")
+                            ->orWhere('nom','like',"%$searchTerm%")
+                            ->orWhere('bio','like',"%$searchTerm%")
+                            ->get();
+        return view('candidat.candidat-search', ['candidats' => $candidats]);
+
+    }
+
     public function dashboard()
     {
         $candidat_id=auth()->user()->candidat->id;

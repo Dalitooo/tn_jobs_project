@@ -12,11 +12,11 @@
                       <h5>Chercher</h5>
                     </div>
                     <form class="filter-block mb-30" action="{{ route('candidat.search') }}" method="GET">
-                      <div class="form-group select-style">
-                        <input type="text" name="search" class="form-control" placeholder="chercher candidats">
-                        <button class="submit btn btn-default mt-10 rounded-1 w-100" type="submit">Search</button>
-                      </div>
-                    </form>
+                        <div class="form-group select-style">
+                          <input type="text" name="search" class="form-control" placeholder="search">
+                          <button class="submit btn btn-default mt-10 rounded-1 w-100" type="submit">chercher candidats</button>
+                        </div>
+                      </form>
 
 
                   </div>

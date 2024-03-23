@@ -13,6 +13,17 @@ class OffreController extends Controller
         return view('offre.index',['offres'=>$offres]);
     }
 
+    public function search(Request $request){
+        $searchTerm=$request->input('search');
+        $offres = OffreEmploi::where('poste','like',"%$searchTerm%")
+                            ->orWhere('description','like',"%$searchTerm%")
+                            ->orWhere('exigence','like',"%$searchTerm%")
+                            ->orWhere('lieu','like',"%$searchTerm%")
+                            ->orWhere('salaire','like',"%$searchTerm%")
+                            ->paginate(5);
+        return view('offre.offre-search', ['offres' => $offres]);
+    }
+
     public function myOffres(){
         $recruteurId = auth()->user()->recruteur->id;
         $myOffres = OffreEmploi::where('recruteur_id',$recruteurId)->paginate(5);

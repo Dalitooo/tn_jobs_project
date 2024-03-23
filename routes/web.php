@@ -23,11 +23,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/offre/search',[OffreController::class,'search'])->name('offre.search');
 Route::get('/offre',[OffreController::class,'index'])->name('offre.index');
 Route::get('/offre/{offre}',[OffreController::class,'show'])->name('offre.show');
 Route::get('/recruteurs',[RecruteurController::class,'index'])->name('recruteur.index');
+Route::get('/recruteurs/search',[RecruteurController::class,'search'])->name('recruteur.search');
 Route::get('/recruteurs/{recruteur}',[RecruteurController::class,'show'])->name('recruteur.show');
 Route::get('/candidats',[CandidatController::class,'index'])->name('candidat.index');
+Route::get('/candidats/search', [CandidatController::class, 'search'])->name('candidat.search');
 Route::get('/candidats/{candidat}',[CandidatController::class,'show'])->name('candidat.show');
 Route::get('/candidats/{candidat}/download-cv', [CandidatController::class,'downloadCV'])->name('candidat.downloadCV');
 

@@ -46,6 +46,7 @@
                           <h2>Pending...</h2>
                           <span class="icon"><i class="fas fa-briefcase"></i></span>
                         </div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id commodi, incidunt inventore corporis vitae nihil consequuntur officia rem adipisci saepe!
                       </div>
                     </div>
                     @if(!auth()->user()->recruteur)
