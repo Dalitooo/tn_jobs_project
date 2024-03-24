@@ -5,6 +5,22 @@
       <div class="banner-hero banner-image-single">
       </div>
       <div class="row mt-10">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('alreadyApplied'))
+            <div class="alert alert-info">
+                {{ session('alreadyApplied') }}
+            </div>
+        @endif
+
+        @if(session('notVerified'))
+            <div class="alert alert-warning">
+                {{ session('notVerified') }}
+            </div>
+        @endif
         <div class="col-lg-8 col-md-12">
           <h3>{{$offre->poste}}</h3>
           <div class="mt-0 mb-15"><span class="card-time">

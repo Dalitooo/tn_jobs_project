@@ -26,19 +26,25 @@ class CandidatureController extends Controller
 
 
     public function store(string $id){
+        $offre=OffreEmploi::find($id);
         if(!auth()->check()) {
             throw ValidationException::withMessages(['Please login for apply to the job.']);
         }
         $alreadyApplied = Candidature::where(['offre_emploi_id' => $id,'candidat_id'=>auth()->user()->candidat->id])->exists();
         if($alreadyApplied) {
-            throw ValidationException::withMessages(['You already applied to this job.']);
+            return redirect(route('offre.show',['offre'=>$offre]))->with('alreadyApplied', 'You Already Applied To This Job');;
+        }
+        $verif=auth()->user()->candidat->verif==1;
+        if(!$verif){
+            return redirect(route('offre.show',['offre'=>$offre]))->with('notVerified', 'Profile Not Verified Yet');;
         }
         $applyJob = new Candidature();
         $applyJob->offre_emploi_id = $id;
         $applyJob->candidat_id = auth()->user()->candidat->id;
         $applyJob->result=null;
         $applyJob->save();
-        return response(['message' => 'Applied Successfully!'], 200);
+        return redirect(route('offre.show',['offre'=>$offre]))->with('success', 'Applied Succesffully');;
+
     }
     public function accepter(Candidature $candidature){
         $candidature->result= true;
