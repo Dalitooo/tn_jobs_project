@@ -88,9 +88,8 @@ Route::group(
 
 
 
-
 Route::get('/admin/dashboard', function () {
-    return view('admin.test');
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified','user.role:admin'])->name('admin.dashboard');
 
 

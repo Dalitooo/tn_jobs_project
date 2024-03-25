@@ -60,7 +60,7 @@ namespace App\Models{
  * @property int $id
  * @property int $candidat_id
  * @property int $offre_emploi_id
- * @property int $result
+ * @property int|null $result
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Candidat $candidat
