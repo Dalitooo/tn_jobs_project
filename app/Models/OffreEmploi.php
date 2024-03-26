@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class OffreEmploi extends Model
 {
     use HasFactory;
-    protected $fillable=['recruteur_id','poste','description','exigence','salaire','date_fin_offre','lieu','valid'];
+    protected $fillable=['recruteur_id','poste','description','exigence','salaire','date_fin_offre','lieu','verif'];
 
     public function candidatures(){
         return $this->hasMany(Candidature::class);

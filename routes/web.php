@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\OffreController;
@@ -82,15 +83,15 @@ Route::group(
         'as'=>'admin.'
     ],function(){
         Route::get('dashboard', function () {
-            return view('dashboard');})->name('dashboard');
+            return view('admin.dashboard');})->name('dashboard');
+        route::get('offers/pending',[AdminController::class,'pendingOffers'])->name('offers.pending');
+        route::put('offers/accepter/{id}',[AdminController::class,'acceptOffer'])->name('offers.accepter');
+        route::put('offers/refuser/{id}',[AdminController::class,'refuseOffer'])->name('offers.refuser');
+
     }
 );
 
 
-
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified','user.role:admin'])->name('admin.dashboard');
 
 
 Route::middleware('auth')->group(function () {
