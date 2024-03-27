@@ -21,19 +21,22 @@ class AdminController extends Controller
         $rejectedOffers=OffreEmploi::where('verif',0)->paginate(10);
         return view('admin.rejected-offers',['offers'=>$rejectedOffers]);
     }
+    public function offerDetails(OffreEmploi $offer){
+        return view('admin.details-offer',['offer'=>$offer]);
+    }
 
     public function acceptOffer($id) {
         $offer=OffreEmploi::where('id',$id)->first();
         $offer->verif = true;
         $offer->save();
-        return redirect()->route('admin.offers.pending');
+        return redirect()->route('admin.offers.pending')->with('success','offer accepter');
     }
 
     public function refuseOffer($id) {
         $offer=OffreEmploi::where('id',$id)->first();
         $offer->verif = false;
         $offer->save();
-        return redirect()->route('admin.offers.pending');
+        return redirect()->route('admin.offers.pending')->with('success','offer refuser');;
     }
 
 

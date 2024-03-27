@@ -85,8 +85,12 @@ Route::group(
         Route::get('dashboard', function () {
             return view('admin.dashboard');})->name('dashboard');
         route::get('offers/pending',[AdminController::class,'pendingOffers'])->name('offers.pending');
+        route::get('offers/accepted',[AdminController::class,'validOffers'])->name('offers.valid');
+        route::get('offers/refused',[AdminController::class,'rejectedOffers'])->name('offers.refused');
+        route::get('offers/{offer}',[AdminController::class,'offerDetails'])->name('offers.details');
         route::put('offers/accepter/{id}',[AdminController::class,'acceptOffer'])->name('offers.accepter');
         route::put('offers/refuser/{id}',[AdminController::class,'refuseOffer'])->name('offers.refuser');
+
 
     }
 );

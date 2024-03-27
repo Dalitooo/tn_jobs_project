@@ -43,7 +43,17 @@
           </ul>
         </li>
         <li class="menu-header">Offers</li>
-        <li><a class="nav-link" href="blank.html"><i class="far fa-file-alt"></i> <span>Validation Des Offres</span></a></li>
+        <li class="dropdown">
+            <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i><span>Offres</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="{{route('admin.offers.pending')}}">Offres En Attente</a></li>
+              <li><a class="nav-link" href="{{route('admin.offers.valid')}}">Offres Validé</a></li>
+              <li><a class="nav-link" href="{{route('admin.offers.refused')}}">Offres Refusé</a></li>
+
+            </ul>
+          </li>
+        <!--        <li><a class="nav-link" href="blank.html"><i class="far fa-file-alt"></i> <span>Validation Des Offres</span></a></li>
+ -->
 
       </ul>
 

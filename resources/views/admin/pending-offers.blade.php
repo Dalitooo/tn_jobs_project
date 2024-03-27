@@ -2,7 +2,7 @@
 @section('contents')
 <section class="section">
     <div class="section-header">
-        <h1>Offers</h1>
+        <h1>Offres En Attente...</h1>
     </div>
 
     <div class="card">
@@ -21,6 +21,11 @@
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <table class="table table-striped" id="sortable-table">
               <thead>
                 <tr>
@@ -45,9 +50,6 @@
                     </td>
                     <td>
                         {{$offer->poste}}
-                        <br>
-                        <a href="">Details</a>
-
                     </td>
                     <td class="align-middle">
                         {{$offer->lieu}}
@@ -64,16 +66,23 @@
                     </td>
                     <td>
                         <div>
-                            <form action="{{route('admin.offers.accepter',['id'=>$offer->id])}}" method="POST">
+                            <button class="btn btn-info details-btn">
+                                <a href="{{route('admin.offers.details',['offer'=>$offer->id])}}">
+                                    <i class="far fa-file-alt"></i>
+                                </a>
+                            </button>
+
+                            <form action="{{route('admin.offers.accepter',['id'=>$offer->id])}}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('put')
                                 <button class="btn btn-success" type="submit">V</button>
                             </form>
-                            <form action="{{route('admin.offers.refuser',['id'=>$offer->id])}}" method="POST">
+                            <form action="{{route('admin.offers.refuser',['id'=>$offer->id])}}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('put')
                                 <button class="btn btn-danger" type="submit">R</button>
                             </form>
+
                         </div>
                     </td>
                   </tr>
