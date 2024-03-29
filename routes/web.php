@@ -90,6 +90,13 @@ Route::group(
         route::get('offers/{offer}',[AdminController::class,'offerDetails'])->name('offers.details');
         route::put('offers/accepter/{id}',[AdminController::class,'acceptOffer'])->name('offers.accepter');
         route::put('offers/refuser/{id}',[AdminController::class,'refuseOffer'])->name('offers.refuser');
+        route::get('candidats/pending',[AdminController::class,'pendingCandidats'])->name('candidats.pending');
+        route::get('candidats/accepted',[AdminController::class,'validCandidats'])->name('candidats.valid');
+        route::get('candidats/refused',[AdminController::class,'rejectedCandidats'])->name('candidats.refused');
+
+
+
+
 
 
     }

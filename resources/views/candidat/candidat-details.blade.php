@@ -12,7 +12,6 @@
         <div class="col-lg-4 col-md-12 text-lg-end">
           <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up">
             <a href="{{ route('candidat.downloadCV', $candidat) }}">Download CV</a>
-
           </div>
         </div>
       </div>

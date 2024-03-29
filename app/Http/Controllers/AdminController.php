@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidat;
 use App\Models\OffreEmploi;
 use Illuminate\Http\Request;
 
@@ -38,6 +39,22 @@ class AdminController extends Controller
         $offer->save();
         return redirect()->route('admin.offers.pending')->with('success','offer refuser');;
     }
+
+
+    public function pendingCandidats(){
+        $candidats=Candidat::where('verif',null)->paginate(5);
+        return view('admin.candidats.pending-candidats',['candidats'=>$candidats]);
+    }
+    public function validCandidats(){
+        $candidats=Candidat::where('verif',1)->paginate(5);
+        return view('admin.candidats.valid-candidats',['candidats'=>$candidats]);
+    }
+
+    public function rejectedCandidats(){
+        $candidats=Candidat::where('verif',0)->paginate(5);
+        return view('admin.candidats.rejected-candidats',['candidats'=>$candidats]);
+    }
+
 
 
 }
