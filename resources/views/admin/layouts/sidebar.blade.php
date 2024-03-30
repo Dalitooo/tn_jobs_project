@@ -38,9 +38,9 @@
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i><span>Validation Candidats</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="index-0.html">Candidats En Attente</a></li>
-            <li><a class="nav-link" href="index.html">Candidats Validé</a></li>
-            <li><a class="nav-link" href="index.html">Candidats Refusé</a></li>
+            <li><a class="nav-link" href="{{route('admin.candidats.pending')}}">Candidats En Attente</a></li>
+            <li><a class="nav-link" href="{{route('admin.candidats.valid')}}">Candidats Validé</a></li>
+            <li><a class="nav-link" href="{{route('admin.candidats.refused')}}">Candidats Refusé</a></li>
 
           </ul>
         </li>

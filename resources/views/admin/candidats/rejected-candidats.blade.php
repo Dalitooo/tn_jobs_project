@@ -65,7 +65,7 @@
                     <td>
                         <div>
                             <button class="btn btn-info details-btn">
-                                <a href="">
+                                <a href="{{route('admin.candidats.details',['candidat'=>$candidat->id])}}">
                                     <i class="far fa-file-alt"></i>
                                 </a>
                             </button>

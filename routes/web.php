@@ -93,6 +93,10 @@ Route::group(
         route::get('candidats/pending',[AdminController::class,'pendingCandidats'])->name('candidats.pending');
         route::get('candidats/accepted',[AdminController::class,'validCandidats'])->name('candidats.valid');
         route::get('candidats/refused',[AdminController::class,'rejectedCandidats'])->name('candidats.refused');
+        route::put('candidats/accepter/{id}',[AdminController::class,'acceptCandidat'])->name('candidats.accepter');
+        route::put('candidats/refuser/{id}',[AdminController::class,'refuseCandidat'])->name('candidats.refuser');
+        route::get('candidats/{candidat}',[AdminController::class,'candidatDetails'])->name('candidats.details');
+
 
 
 

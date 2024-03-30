@@ -55,6 +55,24 @@ class AdminController extends Controller
         return view('admin.candidats.rejected-candidats',['candidats'=>$candidats]);
     }
 
+    public function acceptCandidat($id){
+        $candidat=Candidat::where('id',$id)->first();
+        $candidat->verif=true;
+        $candidat->save();
+        return redirect()->route('admin.candidats.pending')->with('success','candidat accepted');
+    }
+
+    public function refuseCandidat($id){
+        $candidat=Candidat::where('id',$id)->first();
+        $candidat->verif=false;
+        $candidat->save();
+        return redirect()->route('admin.candidats.pending')->with('success','candidat refused');
+    }
+
+    public function candidatDetails(Candidat $candidat){
+        return view('admin.candidats.details-candidat',['candidat'=>$candidat]);
+    }
+
 
 
 }

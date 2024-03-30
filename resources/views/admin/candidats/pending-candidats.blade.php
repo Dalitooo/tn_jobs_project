@@ -65,18 +65,22 @@
                     <td>
                         <div>
                             <button class="btn btn-info details-btn">
-                                <a href="">
+                                <a href="{{route('admin.candidats.details',['candidat'=>$candidat->id])}}">
                                     <i class="far fa-file-alt"></i>
                                 </a>
                             </button>
 
-                            <form action="" method="" style="display: inline-block;">
-
+                            <form action="{{route('admin.candidats.accepter',['id'=>$candidat->id])}}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('put')
                                 <button class="btn btn-success" type="submit">V</button>
                             </form>
-                            <form action="" method="" style="display: inline-block;">
+                            <form action="{{route('admin.candidats.refuser',['id'=>$candidat->id])}}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('put')
                                 <button class="btn btn-danger" type="submit">R</button>
                             </form>
+
 
                         </div>
                     </td>
