@@ -55,7 +55,7 @@
               </div>
               <div class="row">
                 @foreach ($candidats as $candidat )
-
+                @if ($candidat->verif)
                     <div class="col-lg-4 col-md-6">
                     <div class="card-grid-2 hover-up">
                         <div class="card-grid-2-image-left">
@@ -76,6 +76,7 @@
                         </div>
                     </div>
                     </div>
+                @endif
                 @endforeach
 
 

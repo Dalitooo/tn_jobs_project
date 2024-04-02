@@ -37,7 +37,7 @@
               </div>
               <div class="row">
                 @foreach ($recruteurs as $recruteur)
-
+                @if ($recruteur->verif)
 
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                   <div class="card-grid-1 hover-up wow animate__ animate__fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
@@ -49,6 +49,7 @@
                     </div>
                   </div>
                 </div>
+                @endif
                 @endforeach
 
 

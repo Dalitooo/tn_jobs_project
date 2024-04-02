@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidat;
 use App\Models\OffreEmploi;
+use App\Models\Recruteur;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -70,7 +71,39 @@ class AdminController extends Controller
     }
 
     public function candidatDetails(Candidat $candidat){
-        return view('admin.candidats.details-candidat',['candidat'=>$candidat]);
+        return view('admin.candidats.details-candidat',['recruteur'=>$candidat]);
+    }
+
+    public function pendingRecruteurs(){
+        $recruteurs=Recruteur::where('verif',null)->paginate(5);
+        return view('admin.recruteurs.pending-recruteurs',['recruteurs'=>$recruteurs]);
+    }
+    public function validRecruteurs(){
+        $recruteurs=Recruteur::where('verif',1)->paginate(5);
+        return view('admin.recruteurs.valid-recruteurs',['recruteurs'=>$recruteurs]);
+    }
+
+    public function rejectedRecruteurs(){
+        $recruteurs=Recruteur::where('verif',0)->paginate(5);
+        return view('admin.recruteurs.rejected-recruteurs',['recruteurs'=>$recruteurs]);
+    }
+
+    public function acceptRecruteur($id){
+        $recruteur=Recruteur::where('id',$id)->first();
+        $recruteur->verif=true;
+        $recruteur->save();
+        return redirect()->route('admin.recruteurs.pending')->with('success','recruteur accepted');
+    }
+
+    public function refuseRecruteur($id){
+        $recruteur=Recruteur::where('id',$id)->first();
+        $recruteur->verif=false;
+        $recruteur->save();
+        return redirect()->route('admin.recruteurs.pending')->with('success','recruteur refused');
+    }
+
+    public function recruteurDetails(Recruteur $recruteur){
+        return view('admin.recruteurs.details-recruteur',['recruteur'=>$recruteur]);
     }
 
 

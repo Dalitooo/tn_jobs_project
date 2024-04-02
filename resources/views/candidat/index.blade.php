@@ -56,26 +56,30 @@
               <div class="row">
                 @foreach ($candidats as $candidat )
 
-                    <div class="col-lg-4 col-md-6">
-                    <div class="card-grid-2 hover-up">
-                        <div class="card-grid-2-image-left">
-                        <div class="card-grid-2-image-rd"><a href="{{route('candidat.show',['candidat'=>$candidat])}}">
-                            <figure><img alt="joblist" src="{{ asset('storage/' . $candidat->image) }}"></figure>
-                            </a></div>
-                        <div class="card-profile pt-10">
-                            <a href="{{route('candidat.show',['candidat'=>$candidat])}}">
-                            <h5>{{$candidat->prenom}} {{$candidat->nom}}</h5>
-                            </a>
-                            <span class="font-xs color-text-mutted">{{$candidat->profession}}</span>
+                     @if ($candidat->verif)
 
-                        </div>
-                        </div>
-                        <div class="card-block-info">
-                        <p class="font-xs color-text-paragraph-2">{{$candidat->bio}}</p>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="card-grid-2 hover-up">
+                            <div class="card-grid-2-image-left">
+                            <div class="card-grid-2-image-rd"><a href="{{route('candidat.show',['candidat'=>$candidat])}}">
+                                <figure><img alt="joblist" src="{{ asset('storage/' . $candidat->image) }}"></figure>
+                                </a></div>
+                            <div class="card-profile pt-10">
+                                <a href="{{route('candidat.show',['candidat'=>$candidat])}}">
+                                <h5>{{$candidat->prenom}} {{$candidat->nom}}</h5>
+                                </a>
+                                <span class="font-xs color-text-mutted">{{$candidat->profession}}</span>
+                            </div>
+                            </div>
+                            <div class="card-block-info">
+                            <p class="font-xs color-text-paragraph-2">{{$candidat->bio}}</p>
 
+                            </div>
                         </div>
-                    </div>
-                    </div>
+                        </div>
+
+                    @endif
+
                 @endforeach
 
 

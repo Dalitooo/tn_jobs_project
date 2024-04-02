@@ -37,18 +37,20 @@
               </div>
               <div class="row">
                 @foreach ($recruteurs as $recruteur)
+                    @if ($recruteur->verif)
 
 
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div class="card-grid-1 hover-up wow animate__ animate__fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-                    <div class="image-box"><a href="{{route('recruteur.show',['recruteur'=>$recruteur])}}"><img src="{{ asset('storage/' . $recruteur->logo) }}" alt="joblist"></a></div>
-                    <div class="info-text mt-10">
-                      <h5 class="font-bold"><a href="{{route('recruteur.show',['recruteur'=>$recruteur])}}">{{$recruteur->nom_entreprise}}</a></h5>
-                      <div class="mt-5">
-                      </div><span class="card-location">{{$recruteur->adresse}}</span>
-                    </div>
-                  </div>
-                </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                        <div class="card-grid-1 hover-up wow animate__ animate__fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="image-box"><a href="{{route('recruteur.show',['recruteur'=>$recruteur])}}"><img src="{{ asset('storage/' . $recruteur->logo) }}" alt="joblist"></a></div>
+                            <div class="info-text mt-10">
+                            <h5 class="font-bold"><a href="{{route('recruteur.show',['recruteur'=>$recruteur])}}">{{$recruteur->nom_entreprise}}</a></h5>
+                            <div class="mt-5">
+                            </div><span class="card-location">{{$recruteur->adresse}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    @endif
                 @endforeach
 
 

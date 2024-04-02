@@ -34,6 +34,17 @@
         <a href="index.html">St</a>
       </div>
       <ul class="sidebar-menu">
+        <li class="menu-header">Recruteurs</li>
+        <li class="dropdown">
+          <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i><span>Validation Recruteurs</span></a>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="{{route('admin.recruteurs.pending')}}">Recruteurs En Attente</a></li>
+            <li><a class="nav-link" href="{{route('admin.recruteurs.valid')}}">Recruteurs Validé</a></li>
+            <li><a class="nav-link" href="{{route('admin.recruteurs.refused')}}">Recruteurs Refusé</a></li>
+
+          </ul>
+        </li>
+
         <li class="menu-header">Candidats</li>
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i><span>Validation Candidats</span></a>
