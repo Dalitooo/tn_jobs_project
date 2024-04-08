@@ -9,7 +9,7 @@
                         <li><a class="btn btn-border mb-20" href="{{route('candidat.create')}}">Profile</a></li>
                         <li><a class="btn btn-border mb-20 active" href="{{route('candidat.dashboard')}}">Dashboard</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('candidat.candidatures')}}">Mes Candidatures</a></li>
-                        <li><a class="btn btn-border mb-20" href="{{route('candidat.editPrivacy')}}">Privacy Settings</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('profile.edit')}}">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -41,8 +41,13 @@
                       </div>
                       <div class="col-lg-4 col-md-6">
                         <div class="dash_overview_item bg-warning-subtle">
-                          <h2>Pending...</h2>
-                          <span class="icon"><i class="fas fa-briefcase"></i></span>
+                        @if(auth()->user()->candidat->verif === null)
+                            <h2>Pending...</h2>
+                        @elseif(auth()->user()->candidat->verif === true)
+                            <h2>Verified</h2>
+                        @elseif(auth()->user()->candidat->verif === false)
+                            <h2>Not Verified</h2>
+                        @endif
                         </div>
                       </div>
                     </div>

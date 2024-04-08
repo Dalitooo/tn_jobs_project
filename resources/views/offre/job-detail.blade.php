@@ -30,10 +30,23 @@
         </div>
         <div class="col-lg-4 col-md-12 text-lg-end">
           <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up">
-            <form action="{{Route('candidat.candidature.store',['id'=>$offre->id])}}" method="POST">
-                @csrf
-                <input type="submit" value="apply now">
-            </form>
+            @if(auth()->check())
+            @if(auth()->user()->candidat)
+                <form action="{{ route('candidat.candidature.store', ['id' => $offre->id]) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="Apply Now">
+                </form>
+            @elseif(auth()->user()->recruteur)
+                <p>You are a recruteur. You cannot apply.</p>
+            @else
+                <p>Admin Can't apply.</p>
+            @endif
+        @else
+        <form action="{{ route('candidat.candidature.store', ['id' => $offre->id]) }}" method="POST">
+            @csrf
+            <input type="submit" value="Please Login To Apply">
+        </form>
+        @endif
           </div>
         </div>
       </div>

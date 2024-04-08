@@ -8,21 +8,10 @@
         <div class="header-nav">
           <nav class="nav-main-menu">
             <ul class="main-menu">
-              <li class="has-children"><a class="active" href="index.html">Home</a></li>
+              <li class="has-children"><a class="active" href="/">Home</a></li>
               <li class="has-children"><a href="{{route('offre.index')}}">Find a Job</a></li>
               <li class="has-children"><a href="{{route('recruteur.index')}}">Recruiters</a></li>
               <li class="has-children"><a href="{{route('candidat.index')}}">Candidates</a></li>
-              <li class="has-children"><a href="blog-grid.html">Contact</a>
-                <ul class="sub-menu">
-                  <li><a href="page-about.html">About Us</a></li>
-                  <li><a href="page-pricing.html">Pricing Plan</a></li>
-                  <li><a href="page-contact.html">Contact Us</a></li>
-                  <li><a href="page-register.html">Register</a></li>
-                  <li><a href="page-signin.html">Signin</a></li>
-                  <li><a href="page-reset-password.html">Reset Password</a></li>
-                  <li><a href="blog-details.html">Blog Single</a></li>
-                </ul>
-              </li>
             </ul>
           </nav>
           <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span

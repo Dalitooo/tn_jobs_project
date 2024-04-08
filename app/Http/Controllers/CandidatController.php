@@ -53,7 +53,7 @@ class CandidatController extends Controller
     }
 
     public function index(){
-        $candidats=Candidat::all();
+        $candidats=Candidat::paginate(5);
         return view('candidat.index',['candidats'=>$candidats]);
     }
 

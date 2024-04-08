@@ -15,9 +15,15 @@
                   of Jobs</h1>
                 <div class="banner-description mt-20 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                   Find Jobs, Employment & Career Opportunities
-                  <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('register')}}">Register</a>
-
                 </div>
+                <div class="form-find mt-40 wow animate__ animate__fadeIn animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+                    <form action="{{route('offre.search')}}" method="GET">
+                      <input class="form-input input-keysearch mr-10" type="text" name="search" placeholder="Your keyword... ">
+                      <button class="btn btn-default btn-find font-sm">Search</button>
+                    </form>
+                  </div>
+
+
 
               </div>
             </div>
