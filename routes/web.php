@@ -82,8 +82,7 @@ Route::group(
         'prefix'=>'admin',
         'as'=>'admin.'
     ],function(){
-        Route::get('dashboard', function () {
-            return view('admin.dashboard');})->name('dashboard');
+        Route::get('dashboard',[AdminController::class,'dashboard'])->name('dashboard');
         route::get('offers/pending',[AdminController::class,'pendingOffers'])->name('offers.pending');
         route::get('offers/accepted',[AdminController::class,'validOffers'])->name('offers.valid');
         route::get('offers/refused',[AdminController::class,'rejectedOffers'])->name('offers.refused');

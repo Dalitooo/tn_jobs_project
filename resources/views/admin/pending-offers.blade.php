@@ -2,22 +2,12 @@
 @section('contents')
 <section class="section">
     <div class="section-header">
-        <h1>Offres En Attente...</h1>
+        <h1>Offres</h1>
     </div>
 
     <div class="card">
         <div class="card-header">
-          <h4>Pending Offers</h4>
-          <div class="card-header-action">
-            <form>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-btn">
-                  <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
+          <h4>Offres En Attente...</h4>
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">

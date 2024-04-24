@@ -71,7 +71,7 @@ class AdminController extends Controller
     }
 
     public function candidatDetails(Candidat $candidat){
-        return view('admin.candidats.details-candidat',['recruteur'=>$candidat]);
+        return view('admin.candidats.details-candidat',['candidat'=>$candidat]);
     }
 
     public function pendingRecruteurs(){
@@ -106,6 +106,14 @@ class AdminController extends Controller
         return view('admin.recruteurs.details-recruteur',['recruteur'=>$recruteur]);
     }
 
+
+    public function dashboard()
+    {
+        $totalCandidat = Candidat::count();
+        $totalRecruteur = Recruteur::count();
+        $totalOffre = OffreEmploi::count();
+        return view('admin.dashboard', compact('totalCandidat', 'totalRecruteur', 'totalOffre'));
+    }
 
 
 }

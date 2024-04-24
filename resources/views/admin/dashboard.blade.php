@@ -7,64 +7,56 @@
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
-          <div class="card-icon bg-primary">
-            <i class="far fa-user"></i>
-          </div>
+          <div class="card-icon">
+            <a href="{{route('admin.candidats.pending')}}">
+                <img src="{{ asset('storage/images/employe.png')}}" style="max-width: 50px; max-height: 100px;" >
+            </a>
+        </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Total Users</h4>
+              <h4>Candidats</h4>
             </div>
             <div class="card-body">
-              10
+              {{$totalCandidat}}
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
-          <div class="card-icon bg-danger">
-            <i class="far fa-newspaper"></i>
+          <div class="card-icon">
+            <a href="{{ route('admin.recruteurs.pending') }}">
+                <img src="{{ asset('storage/images/homme-daffaire.png')}}" style="max-width: 50px; max-height: 100px;" >
+            </a>
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Rejected Users</h4>
+              <h4>Recruteurs</h4>
             </div>
             <div class="card-body">
-              42
+                {{$totalRecruteur}}
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
-          <div class="card-icon bg-warning">
-            <i class="far fa-file"></i>
+          <div class="card-icon">
+            <a href="{{route('admin.offers.pending')}}">
+                <img src="{{ asset('storage/images/offre.png')}}" style="max-width: 50px; max-height: 100px;" >
+            </a>
           </div>
           <div class="card-wrap">
             <div class="card-header">
               <h4>Offers</h4>
             </div>
             <div class="card-body">
-              1,201
+                {{$totalOffre}}
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
-          <div class="card-icon bg-success">
-            <i class="fas fa-circle"></i>
-          </div>
-          <div class="card-wrap">
-            <div class="card-header">
-              <h4>Online Users</h4>
-            </div>
-            <div class="card-body">
-              47
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </section>
 @endsection
