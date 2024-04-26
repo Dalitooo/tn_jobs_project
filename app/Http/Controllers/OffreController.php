@@ -9,7 +9,7 @@ class OffreController extends Controller
 {
 
     public function index(){
-        $offres=OffreEmploi::all()->paginator(6);
+        $offres=OffreEmploi::paginate(7);
         return view('offre.index',['offres'=>$offres]);
     }
 
