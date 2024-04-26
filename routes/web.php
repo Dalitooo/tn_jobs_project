@@ -106,12 +106,6 @@ Route::group(
         route::put('recruteurs/refuser/{id}',[AdminController::class,'refuseRecruteur'])->name('recruteurs.refuser');
         route::get('recruteurs/{recruteur}',[AdminController::class,'recruteurDetails'])->name('recruteurs.details');
 
-
-
-
-
-
-
     }
 );
 
