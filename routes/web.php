@@ -22,7 +22,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $offres = OffreEmploi::where('verif', true)
+    ->orderBy('created_at', 'desc')
+    ->take(4)
+    ->get();;
+    return view('index', compact('offres'));
 });
 Route::get('/offre/search',[OffreController::class,'search'])->name('offre.search');
 Route::get('/offre',[OffreController::class,'index'])->name('offre.index');

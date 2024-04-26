@@ -12,6 +12,10 @@ class OffreController extends Controller
         $offres=OffreEmploi::paginate(7);
         return view('offre.index',['offres'=>$offres]);
     }
+    public function latestOffers(){
+        $offres = OffreEmploi::orderBy('created_at', 'desc')->take(4)->get();
+        return view('sections.jobs-section', ['offres' => $offres]);
+    }
 
     public function search(Request $request){
         $searchTerm=$request->input('search');
@@ -67,7 +71,11 @@ class OffreController extends Controller
         return view('recruteur.offre_emploi.update-offre',['offre'=>$offre]);
     }
     public function show(OffreEmploi $offre){
-        return view('offre.job-detail',['offre'=>$offre]);
+        if ($offre->verif) {
+            return view('offre.job-detail', ['offre' => $offre]);
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
     }
 
     public function update(OffreEmploi $offre,Request $request){

@@ -3,15 +3,15 @@
       <div class="main-header">
         <div class="header-left">
           <div class="header-logo"><a class="d-flex" href="/"><img alt="joblist"
-                src={{asset('assets/imgs/PFE.png')}}></a></div>
+                src={{asset('assets/imgs/pfe2.png')}} width="150"></a></div>
         </div>
         <div class="header-nav">
           <nav class="nav-main-menu">
             <ul class="main-menu">
-              <li class="has-children"><a class="active" href="/">Home</a></li>
-              <li class="has-children"><a href="{{route('offre.index')}}">Find a Job</a></li>
-              <li class="has-children"><a href="{{route('recruteur.index')}}">Recruiters</a></li>
-              <li class="has-children"><a href="{{route('candidat.index')}}">Candidates</a></li>
+              <li class="has-children"><a class="active" href="/">Acceuil</a></li>
+              <li class="has-children"><a href="{{route('offre.index')}}">Offres d'emploi</a></li>
+              <li class="has-children"><a href="{{route('recruteur.index')}}">Recruteurs</a></li>
+              <li class="has-children"><a href="{{route('candidat.index')}}">Candidats</a></li>
             </ul>
           </nav>
           <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span
@@ -20,7 +20,7 @@
         <div class="header-right">
           <div class="block-signin">
             @guest
-            <a class="text-link-bd-btom hover-up" href="{{route('register')}}">Register</a>
+            <a class="text-link-bd-btom hover-up" href="{{route('register')}}">Inscription</a>
             <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('login')}}">Sign in</a>
             @endguest
             @auth
