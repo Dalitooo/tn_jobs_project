@@ -14,7 +14,7 @@
 
             <div class="text-center">
               <h2 class="mb-5 text-brand-1">Login</h2>
-              <p class="font-sm text-muted mb-30">Please provide your valid cradentials.</p>
+              <p class="font-sm text-muted mb-30">Veuillez saisir vos identifiants valides.</p>
             </div>
             <form class="login-register text-start mt-20" method="POST" action="{{ route('login') }}">
                 @csrf
@@ -31,31 +31,23 @@
 
                 <div class="col-xl-12">
                   <div class="form-group">
-                    <div class="d-flex justify-content-between">
-                        <label class="form-label" for="input-4">Password *</label>
+                    <div class="d-flex justify-content-between">Mot de passe
+                        <label class="form-label" for="input-4"> *</label>
 
                     </div>
                     <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="input-4" type="password" required="" name="password"
                       placeholder="************">
-                    <a href="{{ route('password.request') }}">forgot password?</a>
-
+                    <a href="{{ route('password.request') }}">mot de passe oublié?</a>
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
                   </div>
                 </div>
-
-                <div class="col-xl-12">
-                    <div class="form-check form-group form-check-inline">
-                        <input class="form-check-input" style="margin-right: 10px" type="checkbox" name="remember">
-                        <label class="form-check-label" for="typeCandidate"> Remember me</label>
-                    </div>
-                </div>
-
               </div>
               <div class="form-group">
-                <button class="btn btn-default hover-up w-100" type="submit" name="login">Login</button>
+                <button class="btn btn-default hover-up w-100" type="submit" name="login">Se connecter</button>
               </div>
-              <div class="text-muted text-center">Don't have an account?
-                <a href="{{ route('register') }}">Registration</a>
+              <div class="text-muted text-center">Vous n'avez pas de compte ?
+                <a href="{{ route('register') }}">Inscrivez-vous</a>
               </div>
             </form>
             {{-- <div class="text-center mt-20">

@@ -11,7 +11,7 @@
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre.create')}}">Creer Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre')}}">Liste Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.candidatures')}}">Candidatures</a></li>
-                        <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('profile.edit')}}">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -27,6 +27,12 @@
             <div class="col-lg-9 col-md-8 col-sm-12 col-12 mb-50">
                 <div class="content-single">
                   <h3 class="mt-0 mb-0 color-brand-1">Dashboard</h3>
+                  <br>
+                  @if (session('message'))
+                  <div class="alert alert-info">
+                      {{ session('message') }}
+                  </div>
+              @endif
                   <div class="dashboard_overview">
                     <div class="row">
                       <div class="col-lg-4 col-md-6">
@@ -43,11 +49,20 @@
                       </div>
                       <div class="col-lg-4 col-md-6">
                         <div class="dash_overview_item bg-warning-subtle">
-                          <h2>Pending...</h2>
+
+                            @if(auth()->user()->recruteur->verif === null)
+                            <h2>Pending...</h2>
+                            @elseif(auth()->user()->recruteur->verif === true)
+                                <h2>Verified</h2>
+                            @elseif(auth()->user()->recruteur->verif === false)
+                                <h2>Not Verified</h2>
+                            @endif
+
                           <span class="icon"><i class="fas fa-briefcase"></i></span>
                         </div>
                       </div>
                     </div>
+
                     @if(!auth()->user()->recruteur)
                     <div class="row">
                       <div class="col-12 mt-30">

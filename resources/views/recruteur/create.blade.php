@@ -11,7 +11,7 @@
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre.create')}}">Creer Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre')}}">Liste Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.candidatures')}}">Candidatures</a></li>
-                        <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('profile.edit')}}">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -30,6 +30,11 @@
                     <div class="col-12 mt-30">
                         <div class="dash_alert_box p-30 bg-danger rounded-4 d-flex flex-wrap">
                             <div class="text">
+                                @if (session('message'))
+                                    <div class="alert alert-info">
+                                        {{ session('message') }}
+                                    </div>
+                                @endif
                                 <h4>Setup your profile !</h4>
                                 <p>Please fill in all the necessary information to complete your profile. This will help us provide you with a better experience on our platform.</p>
                             </div>

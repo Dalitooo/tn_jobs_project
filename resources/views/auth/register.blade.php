@@ -60,8 +60,8 @@
         <div class="col-lg-6 col-md-6 col-sm-12 mx-auto">
           <div class="login-register-cover">
             <div class="text-center">
-              <h2 class="mb-5 text-brand-1">Register</h2>
-              <p class="font-sm text-muted mb-30">Lorem ipsum dolor sit amet consectetur.</p>
+              <h2 class="mb-5 text-brand-1">Inscription</h2>
+              <p class="font-sm text-muted mb-30"> Veuillez compléter le formulaire ci-dessous pour créer un compte</p>
             </div>
 
 
@@ -81,7 +81,7 @@
 
                 <div class="col-xl-6">
                   <div class="form-group">
-                    <label class="form-label" for="input-4">Password *</label>
+                    <label class="form-label" for="input-4">Mot de passe *</label>
                     <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="input-4" type="password" required="" name="password"
                       placeholder="************">
 
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-xl-6">
                   <div class="form-group">
-                    <label class="form-label" for="input-5">Confirm-Password *</label>
+                    <label class="form-label" for="input-5">Confirmer le mot de passe *</label>
                     <input class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" id="input-5" type="password" required="" name="password_confirmation"
                       placeholder="************">
                       <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
@@ -100,7 +100,7 @@
 
                 <div class="col-12 mb-3">
                   <hr>
-                  <h6 for="" class="mb-2">Create Account For</h6>
+                  <h6 for="" class="mb-2">Créer un compte pour</h6>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="account_type" id="typeCandidate" value="candidat" >
                     <label class="form-check-label" for="typeCandidate">Candidat</label>
@@ -117,11 +117,10 @@
                   @endif
                 </div>
               <div class="form-group">
-                <button class="btn btn-default hover-up w-100" type="submit" name="login">Submit &amp;
-                  Register</button>
+                <button class="btn btn-default hover-up w-100" type="submit" name="login">S'inscrire</button>
               </div>
-              <div class="text-muted text-center">Already have an account?
-                <a href="{{ route('login') }}">Sign in</a>
+              <div class="text-muted text-center">Vous avez déjà un compte? &nbsp;
+                <a href="{{ route('login') }}">Connectez-vous</a>
               </div>
             </form>
 

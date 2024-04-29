@@ -21,7 +21,7 @@
           <div class="block-signin">
             @guest
             <a class="text-link-bd-btom hover-up" href="{{route('register')}}">Inscription</a>
-            <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('login')}}">Sign in</a>
+            <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('login')}}">Login</a>
             @endguest
             @auth
                 @if (auth()->user()->role === 'recruteur')

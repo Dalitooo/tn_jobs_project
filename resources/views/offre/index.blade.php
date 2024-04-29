@@ -17,7 +17,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="card-grid-2-image-left">
                                     <div class="image-box"><img src="{{ asset('storage/' . $offre->recruteur->logo) }}" alt="joblist"></div>
-                                    <div class="right-info"><a class="name-job" href="{{route('recruteur.show',['recruteur'=>$offre])}}">{{$offre->recruteur->nom_entreprise}}</a><span class="location-small">{{$offre->lieu}}</span></div>
+                                    <div class="right-info"><a class="name-job" href="{{route('recruteur.show',['recruteur'=>$offre->recruteur])}}">{{$offre->recruteur->nom_entreprise}}</a><span class="location-small">{{$offre->lieu}}</span></div>
                                 </div>
                                 </div>
 

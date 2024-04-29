@@ -11,6 +11,24 @@ use Illuminate\Validation\ValidationException;
 class CandidatureController extends Controller
 {
     public function myCandidaturesRecruteur(){
+        $user = auth()->user();
+
+        // Vérifiez si l'utilisateur a un compte recruteur configuré
+        if (!$user->recruteur) {
+            // Rediriger l'utilisateur pour créer son profil de recruteur
+            return redirect()->route('recruteur.create')->with('message', 'Veuillez configurer votre profil recruteur pour accéder à vos candidatures.');
+        }
+
+        if ($user->recruteur && !$user->recruteur->verif) {
+            // Flasher un message dans la session pour indiquer que le compte est en attente de vérification
+            session()->flash('message', 'Votre compte est en attente de vérification par l\'administrateur.');
+
+            // Rediriger l'utilisateur vers une page d'attente ou le tableau de bord par exemple
+            return redirect()->route('recruteur.dashboard');
+        }
+
+
+
         $recruteurOffers = OffreEmploi::where('recruteur_id', auth()->user()->recruteur->id)->pluck('id');
         $recruteurCandidatures = Candidature::whereIn('offre_emploi_id', $recruteurOffers)->get();
         return view('candidature.list-candidatures-recruteur',['candidatures'=>$recruteurCandidatures]);

@@ -34,7 +34,7 @@ class RecruteurController extends Controller
 
     }
 
-    public function dashboard(){
+    public function dashboardd(){
         $recruteur_id=auth()->user()->recruteur->id;
         $nbrCandidatures=$this->mesOffres($recruteur_id);
         $nbrCandidaturesValide= $this->mesCandidaturesValide($recruteur_id);
@@ -43,6 +43,27 @@ class RecruteurController extends Controller
          'nbrCandidaturesValide'=>$nbrCandidaturesValide
         ]
         );
+    }
+
+    public function dashboard(){
+        $user = auth()->user();
+
+        // Check if the user has a recruteur profile
+        if ($user->recruteur) {
+            $recruteur_id = $user->recruteur->id;
+            $nbrCandidatures = $this->mesOffres($recruteur_id);
+            $nbrCandidaturesValide = $this->mesCandidaturesValide($recruteur_id);
+
+            return view('recruteur.dashboard', [
+                'nbrCandidatures' => $nbrCandidatures,
+                'nbrCandidaturesValide' => $nbrCandidaturesValide
+            ]);
+        } else {
+            session()->flash('message', 'Vous devez créer votre profil avant d\'accéder au Dashboard.');
+
+            // Redirect the user to set up their recruteur profile
+            return redirect()->route('recruteur.create');
+        }
     }
 
     public function create(){

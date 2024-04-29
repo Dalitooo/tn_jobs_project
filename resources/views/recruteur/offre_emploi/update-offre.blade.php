@@ -11,7 +11,7 @@
                         <li><a class="btn btn-border mb-20 active" href="{{route('recruteur.offre.create')}}">Creer Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.offre')}}">Liste Offre</a></li>
                         <li><a class="btn btn-border mb-20" href="{{route('recruteur.candidatures')}}">Candidatures</a></li>
-                        <li><a class="btn btn-border mb-20" href="">Privacy Settings</a></li>
+                        <li><a class="btn btn-border mb-20" href="{{route('profile.edit')}}">Privacy Settings</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
