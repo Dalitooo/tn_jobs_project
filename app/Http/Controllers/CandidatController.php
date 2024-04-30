@@ -34,10 +34,24 @@ class CandidatController extends Controller
 
     public function dashboard()
     {
-        $candidat_id=auth()->user()->candidat->id;
-        $nbr = $this->nbrCandidaturesCandidat($candidat_id);
-        $nbrAccepted= $this->candidaturesAccepted($candidat_id);
-        return view('candidat.dashboard', ['nbr' => $nbr,'nbrAccepted'=>$nbrAccepted]);
+        $user = auth()->user();
+
+        // Check if the user has a candidat profile
+        if ($user->candidat) {
+            $candidat_id = $user->candidat->id;
+            $nbrCandidatures = $this->nbrCandidaturesCandidat($candidat_id);
+            $nbrCandidaturesAccepted = $this->candidaturesAccepted($candidat_id);
+
+            return view('candidat.dashboard', [
+                'nbr' => $nbrCandidatures, // Corrected variable name
+                'nbrAccepted' => $nbrCandidaturesAccepted // Corrected variable name
+            ]);
+        } else {
+            session()->flash('message', 'You need to create your profile before accessing the Dashboard.');
+
+            // Redirect the user to set up their candidat profile
+            return redirect()->route('candidat.create');
+        }
     }
 
     public function create()

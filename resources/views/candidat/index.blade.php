@@ -58,6 +58,7 @@
                 </div>
                 <div class="col-12">
                   <div class="paginations mt-35">
+                    {{$candidats->links()}}
                   </div>
                 </div>
               </div>

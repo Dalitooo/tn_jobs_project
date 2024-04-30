@@ -80,11 +80,11 @@
                         <td style="padding: 8px;">
                           <form action="{{route('recruteur.candidatures.accepter',['candidature'=>$candidature])}}" method="POST">
                             @csrf
-                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #28a745; color: white; cursor: pointer; border-radius: 4px; margin-right: 5px;">Accept</button>
+                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #28a745; color: white; cursor: pointer; border-radius: 4px; margin-right: 5px;">V</button>
                           </form>
                           <form action="{{route('recruteur.candidatures.refuser',['candidature'=>$candidature])}}" method="POST">
                             @csrf
-                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #dc3545; color: white; cursor: pointer; border-radius: 4px;">Refuser</button>
+                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #dc3545; color: white; cursor: pointer; border-radius: 4px;">R</button>
                           </form>
 
                         </td>

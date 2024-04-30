@@ -8,10 +8,10 @@
         <div class="header-nav">
           <nav class="nav-main-menu">
             <ul class="main-menu">
-              <li class="has-children"><a class="active" href="/">Acceuil</a></li>
-              <li class="has-children"><a href="{{route('offre.index')}}">Offres d'emploi</a></li>
-              <li class="has-children"><a href="{{route('recruteur.index')}}">Recruteurs</a></li>
-              <li class="has-children"><a href="{{route('candidat.index')}}">Candidats</a></li>
+                <li class="has-children"><a class="{{ request()->is('/') ? 'active' : '' }}" href="/">Accueil</a></li>
+                <li class="has-children"><a class="{{ request()->routeIs('offre.index') ? 'active' : '' }}" href="{{ route('offre.index') }}">Offres d'emploi</a></li>
+                <li class="has-children"><a class="{{ request()->routeIs('recruteur.index') ? 'active' : '' }}" href="{{ route('recruteur.index') }}">Recruteurs</a></li>
+                <li class="has-children"><a class="{{ request()->routeIs('candidat.index') ? 'active' : '' }}" href="{{ route('candidat.index') }}">Candidats</a></li>
             </ul>
           </nav>
           <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span

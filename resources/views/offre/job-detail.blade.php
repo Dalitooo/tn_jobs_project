@@ -31,22 +31,26 @@
         <div class="col-lg-4 col-md-12 text-lg-end">
           <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up">
             @if(auth()->check())
-            @if(auth()->user()->candidat)
-                <form action="{{ route('candidat.candidature.store', ['id' => $offre->id]) }}" method="POST">
-                    @csrf
-                    <input type="submit" value="Apply Now">
-                </form>
-            @elseif(auth()->user()->recruteur)
-                <p>You are a recruteur. You cannot apply.</p>
-            @else
+            @if(auth()->user()->role == 'admin')
                 <p>Admin Can't apply.</p>
+            @elseif(auth()->user()->role == 'recruteur')
+                <p>You are a recruiter. You cannot apply.</p>
+            @elseif(auth()->user()->role == 'candidat')
+                @if(!auth()->user()->candidat)
+                    <p>Your profile needs validation.</p>
+                @elseif(auth()->user()->candidat && !auth()->user()->candidat->verif)
+                    <p>Waiting for profile validation.</p>
+                @elseif(auth()->user()->candidat && auth()->user()->candidat->verif)
+                    <form action="{{ route('candidat.candidature.store', ['id' => $offre->id]) }}" method="POST">
+                        @csrf
+                        <input type="submit" value="Apply">
+                    </form>
+                @endif
             @endif
         @else
-        <form action="{{ route('candidat.candidature.store', ['id' => $offre->id]) }}" method="POST">
-            @csrf
-            <input type="submit" value="Please Login To Apply">
-        </form>
+            <p>Please log in to access this feature.</p>
         @endif
+
           </div>
         </div>
       </div>

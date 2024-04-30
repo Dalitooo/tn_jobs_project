@@ -56,6 +56,7 @@
                       <div class="col-12 mt-30">
                         <div class="dash_alert_box p-30 bg-danger rounded-4 d-flex flex-wrap">
                           <div class="text">
+                            
                             <h4>Setup your profile !</h4>
                             <p>Please fill in all the necessary information to complete your profile. This will help us provide you with a better experience on our platform.</p>
                           </div>

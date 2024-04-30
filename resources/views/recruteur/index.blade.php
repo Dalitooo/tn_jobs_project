@@ -23,6 +23,7 @@
                     @endif
                 @endforeach
               </div>
+              {{$recruteurs->links()}}
             </div>
 
           </div>
