@@ -48,7 +48,7 @@
                 @endif
             @endif
         @else
-            <p>Please log in to access this feature.</p>
+        <a href="{{ route('login') }}">Connectez-vous pour postuler.</a>
         @endif
 
           </div>
@@ -84,11 +84,6 @@
             <p>
                 {{$offre->date_fin_offre}}
             </p>
-          </div>
-          <div class="single-apply-jobs">
-            <div class="row align-items-center">
-              <div class="col-md-5"><a class="btn btn-default mr-15" href="#">Apply now</a></div>
-            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 pl-40 pl-lg-15 mt-lg-30">

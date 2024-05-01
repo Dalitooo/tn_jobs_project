@@ -9,7 +9,7 @@ class OffreController extends Controller
 {
 
     public function index(){
-        $offres=OffreEmploi::paginate(7);
+        $offres=OffreEmploi::orderBy('created_at', 'desc')->paginate(7);
         return view('offre.index',['offres'=>$offres]);
     }
     public function latestOffers(){
