@@ -30,7 +30,7 @@
                                 </p>
                                 <div class="card-2-bottom mt-20">
                                 <div class="row">
-                                    <div class="col-lg-7 col-7"><span class="card-text-price">{{$offre->salaire}} dt</span></div>
+                                    <div class="col-lg-7 col-7"><span class="card-text-price">{{ number_format($offre->salaire, 0, '.', '') }} dt</span></div>
                                     <div class="col-lg-5 col-5 text-end">
                                         <div class="btn btn-apply-now">
                                             <a href="{{route('offre.show',['offre'=>$offre])}}">

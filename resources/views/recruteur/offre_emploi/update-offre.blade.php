@@ -39,7 +39,7 @@
                         @method('put')
 
                         <div class="content-single">
-                            <h3 class="mt-0 mb-15 color-brand-1">Creer Offre</h3>
+                            <h3 class="mt-0 mb-15 color-brand-1">Update Offre</h3>
 
                             <div class="row form-contact">
                                 <div class="col-md-6">

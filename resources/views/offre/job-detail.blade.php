@@ -73,7 +73,7 @@
             </p>
             <h4>Salaire</h4>
                 <p>
-                    {{$offre->salaire}}
+                    {{ number_format($offre->salaire, 0, '.', '') }} dt
                 </p>
             <h4>Adresse De Travail</h4>
                 <p>
@@ -90,7 +90,9 @@
           <div class="sidebar-border">
             <div class="sidebar-heading">
               <div class="avatar-sidebar">
-                <figure><img alt="joblist" src="{{ asset('storage/' . $offre->recruteur->logo) }}"></figure>
+                <a href="{{route('recruteur.show',['recruteur'=>$offre->recruteur])}}">
+                    <figure><img alt="joblist" src="{{ asset('storage/' . $offre->recruteur->logo) }}"></figure>
+                </a>
                 <div class="sidebar-info"><span class="sidebar-company">{{$offre->recruteur->nom_entreprise}}</span>
                     <span class="card-location">{{$offre->recruteur->adresse}}</span>
                 </div>

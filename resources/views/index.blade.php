@@ -4,4 +4,5 @@
 @include('sections.hero-section')
 <div class="mt-100"></div>
 @include('sections.jobs-section')
+<div class="mt-100"></div>
 @endsection

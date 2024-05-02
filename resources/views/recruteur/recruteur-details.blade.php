@@ -7,10 +7,6 @@
       <div class="row mt-10">
         <div class="col-lg-8 col-md-12">
           <h3>{{$recruteur->nom_entreprise}}</h3>
-
-        </div>
-        <div class="col-lg-4 col-md-12 text-lg-end">
-          <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up">Contact US</div>
         </div>
       </div>
       <div class="border-bottom pt-10 pb-10"></div>
