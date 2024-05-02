@@ -32,10 +32,6 @@
             <p>
                 {{$candidat->bio}}
             </p>
-            <h4>Adresse</h4>
-            <p>
-                test test
-            </p>
             <h4>Telephone</h4>
             <p>
                 {{$candidat->tel}}
@@ -51,9 +47,6 @@
             <div class="sidebar-heading">
               <div class="avatar-sidebar">
                 <figure><img alt="joblist" src="{{ asset('storage/' . $candidat->image) }}"></figure>
-                <div class="sidebar-info"><span class="sidebar-company">{{$candidat->prenom}} {{$candidat->nom}}</span>
-                    <span class="card-location">test</span>
-                </div>
               </div>
             </div>
             <div class="sidebar-list-job">
