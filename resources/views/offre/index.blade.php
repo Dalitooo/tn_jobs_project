@@ -32,13 +32,10 @@
                                 <div class="row">
                                     <div class="col-lg-7 col-7"><span class="card-text-price">{{ number_format($offre->salaire, 0, '.', '') }} dt</span></div>
                                     <div class="col-lg-5 col-5 text-end">
-                                        <div class="btn btn-apply-now">
-                                            <a href="{{route('offre.show',['offre'=>$offre])}}">
-                                                Voir Plus
-                                            </a>
-
+                                        <div class="btn btn-apply-now" style="text-align: center;">
+                                            <a href="{{route('offre.show',['offre'=>$offre])}}" style="display: inline-block; color: inherit; text-decoration: inherit;">Voir Plus</a>
                                         </div>
-                                    </div>
+                                      </div>
                                 </div>
                                 </div>
                             </div>

@@ -36,17 +36,24 @@
                   <div class="dashboard_overview">
                     <div class="row">
                       <div class="col-lg-4 col-md-6">
-                        <div class="dash_overview_item bg-info-subtle">
-                          <h2>{{$nbrCandidatures}}<span>Mes Candidatures</span></h2>
-                          <span class="icon"><i class="fas fa-briefcase"></i></span>
-                        </div>
+                        <a href="{{route('recruteur.candidatures')}}">
+                            <div class="dash_overview_item bg-info-subtle">
+                            <h2>{{$nbrCandidatures}}<span>Mes Candidatures</span></h2>
+                            <span class="icon"><i class="fas fa-briefcase"></i></span>
+                            </div>
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-md-6">
-                        <div class="dash_overview_item bg-danger-subtle">
-                          <h2> {{ $nbrCandidaturesValide }}<span>Candidatures Validé</span></h2>
-                          <span class="icon"><i class="fas fa-briefcase"></i></span>
+
+                        <div class="col-lg-4 col-md-6">
+                            <a href="{{route('recruteur.offre')}}">
+                                <div class="dash_overview_item bg-danger-subtle">
+                                <h2> {{ $nbrCandidaturesValide }}<span>Mes Offres</span></h2>
+                                <span class="icon"><i class="fas fa-briefcase"></i></span>
+                                </div>
+                            </a>
                         </div>
-                      </div>
+
+
                       <div class="col-lg-4 col-md-6">
                         <div class="dash_overview_item bg-warning-subtle">
 

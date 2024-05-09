@@ -28,6 +28,8 @@
                     <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('recruteur.dashboard')}}">Dashboard</a>
                 @elseif(auth()->user()->role ==='candidat')
                 <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('candidat.dashboard')}}">Dashboard</a>
+                @elseif(auth()->user()->role ==='admin')
+                <a class="btn btn-default btn-shadow ml-40 hover-up" href="{{route('admin.dashboard')}}">Dashboard</a>
                 @endif
             @endauth
 

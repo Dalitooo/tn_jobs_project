@@ -28,10 +28,8 @@ class RecruteurController extends Controller
 
     }
     public function mesCandidaturesValide(string $id){
-        $recruteurOffers = OffreEmploi::where('recruteur_id', $id)->pluck('id');
-        $nbrCandidaturesValide = Candidature::whereIn('offre_emploi_id', $recruteurOffers)->where('result',1)->count();
-        return $nbrCandidaturesValide;
-
+        $recruteurOffers = OffreEmploi::where('recruteur_id', $id)->pluck('id')->count();
+        return $recruteurOffers;
     }
 
     public function dashboardd(){

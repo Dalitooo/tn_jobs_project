@@ -31,7 +31,7 @@
                      @if ($candidat->verif)
 
                         <div class="col-lg-4 col-md-6">
-                        <div class="card-grid-2 hover-up">
+                        <div class="card-grid-2 hover-up text-center">
                             <div class="card-grid-2-image-left">
                             <div class="card-grid-2-image-rd"><a href="{{route('candidat.show',['candidat'=>$candidat])}}">
                                 <figure><img alt="joblist" src="{{ asset('storage/' . $candidat->image) }}"></figure>

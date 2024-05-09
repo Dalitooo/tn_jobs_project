@@ -2,8 +2,8 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="footer-col-1 col-md-3 col-sm-12">
-          <a class="footer_logo" href="index.html">
-            <img alt="joblist" src="assets/imgs/template/logo_2.png">
+          <a class="footer_logo" href="/">
+            <img alt="joblist" src="{{asset('assets/imgs/pfe22.png')}}">
           </a>
           <div class="mt-20 mb-20 font-xs color-text-paragraph-2">Ce platforme web est un projet de fin d'études pour l'obtention d'une licence en développement de systèmes d'information.</div>
         </div>

@@ -9,7 +9,7 @@ class OffreController extends Controller
 {
 
     public function index(){
-        $offres=OffreEmploi::orderBy('created_at', 'desc')->paginate(7);
+        $offres=OffreEmploi::orderBy('created_at', 'desc')->paginate(5);
         return view('offre.index',['offres'=>$offres]);
     }
     public function latestOffers(){
@@ -70,8 +70,8 @@ class OffreController extends Controller
     public function store(Request $request){
         $data=$request->validate([
             'poste' => 'required|string',
-            'description' => 'required|string|max:250',
-            'exigence' => 'required|string|max:250',
+            'description' => 'required|string|max:350',
+            'exigence' => 'required|string|max:350',
             'salaire' => 'required|numeric',
             'date_fin_offre' => 'required|date|after_or_equal:today',
             'lieu' => 'required|string',

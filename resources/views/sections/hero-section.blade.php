@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-find mt-40 wow animate__ animate__fadeIn animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
                     <form action="{{route('offre.search')}}" method="GET">
-                      <input class="form-input input-keysearch mr-10" type="text" name="search" placeholder="mot clés... ">
+                      <input class="form-input input-keysearch mr-10" type="text" name="search" placeholder="mots clés... ">
                       <button class="btn btn-default btn-find font-sm">Chercher</button>
                     </form>
                   </div>
