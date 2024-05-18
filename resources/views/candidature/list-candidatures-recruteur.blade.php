@@ -53,7 +53,9 @@
                         <th style="padding: 8px; border-bottom: 1px solid #ddd;">Candidat</th>
                         <th style="padding: 8px; border-bottom: 1px solid #ddd;">Poste</th>
                         <th style="padding: 8px; border-bottom: 1px solid #ddd;">Result</th>
-                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Action</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;"></th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;"></th>
+
                       </tr>
                     </thead>
                     <tbody>
@@ -82,11 +84,12 @@
                             @csrf
                             <button type="submit" style="padding: 6px 10px; border: none; background-color: #28a745; color: white; cursor: pointer; border-radius: 4px; margin-right: 5px;">V</button>
                           </form>
-                          <form action="{{route('recruteur.candidatures.refuser',['candidature'=>$candidature])}}" method="POST">
-                            @csrf
-                            <button type="submit" style="padding: 6px 10px; border: none; background-color: #dc3545; color: white; cursor: pointer; border-radius: 4px;">R</button>
-                          </form>
-
+                        </td>
+                        <td>
+                            <form action="{{route('recruteur.candidatures.refuser',['candidature'=>$candidature])}}" method="POST">
+                                @csrf
+                                <button type="submit" style="padding: 6px 10px; border: none; background-color: #dc3545; color: white; cursor: pointer; border-radius: 4px;">R</button>
+                              </form>
                         </td>
                       </tr>
                     @endforeach

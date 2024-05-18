@@ -35,8 +35,8 @@
                                         {{ session('message') }}
                                     </div>
                                 @endif
-                                <h4>Setup your profile !</h4>
-                                <p>Please fill in all the necessary information to complete your profile. This will help us provide you with a better experience on our platform.</p>
+                                <h4>Remplissez votre profil ! </h4>
+                                <p>Veuillez remplir toutes les informations nécessaires pour compléter votre profil. Cela nous aidera à vous offrir une meilleure expérience sur notre plateforme.</p>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
 
                 <br>
                 <div class="content-single">
-                    <h3 class="mt-0 mb-15 color-brand-1">My Account</h3>
+                    <h3 class="mt-0 mb-15 color-brand-1">Mon Profil</h3>
                     <br>
                     <form action="{{ route('recruteur.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -104,7 +104,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="font-sm color-text-mutted mb-10" for="image">Image</label>
+                                    <label class="font-sm color-text-mutted mb-10" for="image">Logo</label>
                                     @if($recruteur ?? null && $recruteur->logo)
                                         <p>Current Image: <img src="{{ asset('storage/' . $recruteur->logo) }}" alt="Current Image"></p>
                                         <input class="form-control" type="file" name="logo" id="image">
@@ -118,7 +118,9 @@
                             </div>
 
                             <div class="box-button mt-15">
-                                <button type="submit" class="btn btn-apply-big font-md font-bold">Save All Changes</button>
+                                <button type="submit" class="btn btn-apply-big font-md font-bold">
+                                    Enregistrer
+                                </button>
                             </div>
                         </div>
                     </form>

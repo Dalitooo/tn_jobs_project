@@ -43,7 +43,7 @@
                 @elseif(auth()->user()->candidat && auth()->user()->candidat->verif)
                     <form action="{{ route('candidat.candidature.store', ['id' => $offre->id]) }}" method="POST">
                         @csrf
-                        <input type="submit" value="Apply">
+                        <input type="submit" value="Postuler">
                     </form>
                 @endif
             @endif

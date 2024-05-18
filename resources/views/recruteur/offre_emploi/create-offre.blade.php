@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="font-sm color-text-mutted mb-10">Salaire</label>
+                                        <label class="font-sm color-text-mutted mb-10">Salaire *</label>
                                         <input name="salaire" class="form-control @error('salaire') is-invalid @enderror" type="text" value="{{ old('salaire') }}">
                                         @error('salaire')
                                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="font-sm color-text-mutted mb-10">Lieu</label>
+                                        <label class="font-sm color-text-mutted mb-10">Lieu *</label>
                                         <input name="lieu" class="form-control @error('lieu') is-invalid @enderror" type="text" value="{{ old('lieu') }}">
                                         @error('lieu')
                                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="font-sm color-text-mutted mb-10">Description de travail</label>
+                                        <label class="font-sm color-text-mutted mb-10">Description de travail *</label>
                                         <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4">{{ old('description') }}</textarea>
                                         @error('description')
                                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="font-sm color-text-mutted mb-10">exigence</label>
+                                        <label class="font-sm color-text-mutted mb-10">exigence *</label>
                                         <textarea name="exigence" class="form-control @error('exigence') is-invalid @enderror" rows="4">{{ old('exigence') }}</textarea>
                                         @error('exigence')
                                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="box-button mt-15">
-                                    <button type="submit" class="btn btn-apply-big font-md font-bold">Save All Changes</button>
+                                    <button type="submit" class="btn btn-apply-big font-md font-bold">Enregistrer</button>
                                 </div>
                             </div>
                         </div>

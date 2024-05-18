@@ -13,7 +13,7 @@
             <x-auth-session-status class="mb-4" :status="session('status')" />
 
             <div class="text-center">
-              <h2 class="mb-5 text-brand-1">Login</h2>
+              <h2 class="mb-5 text-brand-1">Connexion</h2>
               <p class="font-sm text-muted mb-30">Veuillez saisir vos identifiants valides.</p>
             </div>
             <form class="login-register text-start mt-20" method="POST" action="{{ route('login') }}">
