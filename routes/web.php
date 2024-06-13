@@ -53,6 +53,8 @@ Route::group(
         Route::get('editPrivacy',[CandidatController::class,'editPrivacy'])->name('editPrivacy');
         route::post('candidatures/store/{id}',[CandidatureController::class,'store'])->name('candidature.store');
         route::get('candidatures',[CandidatureController::class,'myCandidaturesCandidat'])->name('candidatures');
+        route::get('candidature/accepted/{candidature}',[CandidatureController::class,'accepted'])->name('candidatures.accepted');
+        route::get('candidature/refused/{candidature}',[CandidatureController::class,'refused'])->name('candidatures.refused');
     }
 );
 

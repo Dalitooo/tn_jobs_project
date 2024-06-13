@@ -74,4 +74,11 @@ class CandidatureController extends Controller
         $candidature->save();
         return redirect(route('recruteur.candidatures'));
     }
+
+    public function accepted(Candidature $candidature){
+        return view('candidature.accept',['candidature'=>$candidature]);
+    }
+    public function refused(Candidature $candidature){
+        return view('candidature.refuse',['candidature'=>$candidature]);
+    }
 }
